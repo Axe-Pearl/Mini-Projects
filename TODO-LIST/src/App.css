@@ -20,15 +20,19 @@
   padding: 10px;
   background-color: #E1F0F7;
   border-radius: 6px;
+  gap: 5px;
 }
 
 input{
-  padding: 6px;
+  padding: 7px;
+  width: 98%;
   border: none;
   border-radius: 6px;
   outline: none;
 }
-
+input:focus{
+  box-shadow: 0 0 0 2px #2cb0ee;
+}
 .btn-addTodo{
   padding: 6px;
   border: none;
@@ -39,6 +43,7 @@ input{
   color: white;
   font-weight: 700;
   font-size: 14px;
+  width: 70px;
 }
 
 .todo {

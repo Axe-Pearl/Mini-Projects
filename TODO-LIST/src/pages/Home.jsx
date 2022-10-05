@@ -25,6 +25,7 @@ const Home = () => {
     const deleteTodo = (id) => {
         setTodos(prev => prev.filter(t => t.id !== id))
     }
+    
     const moveUp = (id) => {
         let index = todos.findIndex(t => t.id === id)
         if (index > 0) {
@@ -34,6 +35,7 @@ const Home = () => {
             setTodos([...todos])
         }
     }
+
     const moveDown = (id) => {
         let index = todos.findIndex(t => t.id === id)
         if (index < todos.length - 1) {
