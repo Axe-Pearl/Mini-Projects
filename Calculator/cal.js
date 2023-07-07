@@ -40,3 +40,18 @@ function compute(is){
         } 
     }
 }
+
+// function which will now support the keyboard buttons eg 0 , 1, 2 ...
+keys = ['0','1','2','3','4','5','6','7','8','9','+','-','*','/','.']
+document.body.addEventListener("keypress", (e)=>{
+    if(e.key == "Enter"){
+        compute(1)
+    }
+    if((e.key == "C") || (e.key == 'c')){
+        clearer()
+    }
+    for(key of keys){
+        if(key == e.key)
+        adder(e.key)
+    }
+})
