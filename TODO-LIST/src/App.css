@@ -22,6 +22,14 @@
   border-radius: 6px;
   gap: 5px;
 }
+.todo .text{
+  
+  overflow-x: scroll;
+  width: 208px;
+}
+.text::-webkit-scrollbar{
+  width: 0;
+}
 
 input{
   padding: 7px;
