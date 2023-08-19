@@ -4,12 +4,25 @@ function clearer(){
     valEl.innerText = ""
     resEl.innerText = ""
 }
+
 function adder(k){
-    valEl.innerText += k
+    
+    if (/\d/.test(k)) {
+    if (resEl.innerText[0] == '=') {
+        valEl.innerText = ""
+        resEl.innerText = ""
+    } }
+    
+    valEl.innerText += k 
+
     if(k=='*' || k=='+' || k=='-' || k=='/'){
         compute(0)
+        if (resEl.innerText[0] == '=') {
+            resEl.innerText = ""
+        }
     }
 }
+
 function compute(is){
     let temp = valEl.innerText, i
     let t = temp[temp.length-1];
