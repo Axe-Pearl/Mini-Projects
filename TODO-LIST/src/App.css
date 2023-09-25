@@ -61,6 +61,8 @@ input:focus{
   font-size: 16px;
   font-weight: 700;
   margin-right: auto;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .utils{
