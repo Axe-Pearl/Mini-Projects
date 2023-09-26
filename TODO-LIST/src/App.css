@@ -1,6 +1,6 @@
 .home {
   min-height: 100vh;
-  background-color: white;
+  background-color: rgb(130, 222, 245);
 }
 
 .container {
@@ -10,6 +10,9 @@
   justify-content: center;
   text-align: center;
   padding: 15px;
+}
+.todo .text{
+  overflow-x: hidden;
 }
 
 .todo-form {
