@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Weather App</title>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/icons/qr-code-svgrepo-com.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins&family=Work+Sans&display=swap" rel="stylesheet">
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD1ThSQKNavqo6dQitRw5vPsEr8AXORwiM",
+      authDomain: "theweatherapp-d677a.firebaseapp.com",
+      projectId: "theweatherapp-d677a",
+      storageBucket: "theweatherapp-d677a.appspot.com",
+      messagingSenderId: "296851837513",
+      appId: "1:296851837513:web:e3d83eed152353da016598"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+</head>
+<body id="body">
+  <header>
+    <h1>The Weather App</h1>
+  </header>
+  <main>
+    <section class="leftSidebar">
+      <h1>Today's Headlines</h1>
+      <div class="headlineList"></div>
+      <ul>
+        <li>This is where the headlines would be displayed.</li>
+        <li>I implemented a fully functional news headlines API but the companies that provide this service do not provide a free tier for production</li>
+        <li>I personally can not afford to subscribe to a news service.</li>
+        <li>Take my word for it, I am proficient in using asynchronous javascript.</li>
+        <li>I fully understand how the event loop works and I enjoy utilizing it.</li>
+        <li>Call backs, promises, try and catch - all of these things are amazing, but I am a student not a millionaire.</li>
+      </ul>
+    </section>
+    <div class="centerSection">
+      <form action="/" id="form">
+        <input type="text" name="gif" id="selection" placeholder="City or Zip Code">
+        <button type="submit" id="selection-btn" class="button">set location</button>
+      </form>
+      <div class="display">
+        <div class="locationName"></div>
+        <div class="subHeader">
+          <span id="locationSpan">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path opacity="0.4" d="M13.7474 5.63329C13.0474 2.55329 10.3607 1.16663 8.00069 1.16663C8.00069 1.16663 8.00069 1.16663 7.99403 1.16663C5.64067 1.16663 2.94734 2.54663 2.24734 5.62663C1.46734 9.06663 3.57401 11.98 5.48067 13.8133C6.18734 14.4933 7.09403 14.8333 8.00069 14.8333C8.90736 14.8333 9.81403 14.4933 10.514 13.8133C12.4207 11.98 14.5274 9.07329 13.7474 5.63329Z" fill="white"/>
+              <path d="M8.00103 8.97346C9.16083 8.97346 10.101 8.03326 10.101 6.87346C10.101 5.71364 9.16083 4.77344 8.00103 4.77344C6.84123 4.77344 5.901 5.71364 5.901 6.87346C5.901 8.03326 6.84123 8.97346 8.00103 8.97346Z" fill="white"/>
+            </svg>
+            <p>current location</p>          
+          </span>
+          <div class="dateTime"></div>
+          <div class="cardBody"></div>
+        </div> 
+      </div>  
+      <div class="forcastDisplay" id="forcastID">
+        <div class="forcastCard" id="forcastCard1">
+          <p>Today</p>
+          <small>hi temp</small>
+          <div id="hiTemp"></div>
+          <small>low temp</small>
+          <div id="lowTemp"></div>
+          <small>sunrise</small>
+          <div id="sunup"></div>
+          <small>sunset</small>
+          <div id="sundown"></div>
+        </div>
+        <div class="forcastCard" id="forcastCard2">
+          <p>Next day</p>
+          <div class="ndTemp"></div>
+          <div class="ndImage"></div>
+          <div class="ndText"></div>
+        </div>
+        <div class="forcastCard" id="forcastCard3">
+          <p>Day after</p>
+          <div class="daTemp"></div>
+          <div class="daImage"></div>
+          <div class="daText"></div>
+        </div>
+      </div> 
+    </div>
+    <section class="rightSidebar">
+      <h1>Hourly Forecast</h1>
+      <div class="hourlyDisplay"></div>
+    </section> 
+  </main>
+  <footer>
+    <a href="https://github.com/SalamanderCtesiphon">SeamusQuixote&copy;<div class="year"></div></a>
+  </footer>
+</body>
+</html>
