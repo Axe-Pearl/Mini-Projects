@@ -1,0 +1,31 @@
+
+//This is the modified code
+
+function adder(k) {
+    if (/\d/.test(k)) {
+        if (resEl.innerText[0] == '=') {
+            valEl.innerText = "";
+            resEl.innerText = "";
+        }
+        valEl.innerText = k;
+    } else {
+        valEl.innerText += k;
+    }
+
+    if (k == '*' || k == '+' || k == '-' || k == '/') {
+        compute(0);
+        if (resEl.innerText[0] == '=') {
+            resEl.innerText = "";
+        }
+    }
+}
+
+// Explanation of changes:
+
+// Added a condition to check if k is a digit (/\d/.test(k)). If it is a digit, it replaces the current input value instead of appending to it.
+// Cleared the valEl.innerText when k is a digit and the previous result was displayed (resEl.innerText[0] == '=').
+// These changes should help address the issue of the input space not being cleared and the clicked number being displayed as an additional digit to the input value.
+
+
+
+
