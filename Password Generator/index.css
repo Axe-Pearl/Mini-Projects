@@ -1,0 +1,136 @@
+body{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #1F2937;
+}
+
+.container{
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+#headline {
+    color:#10B981;
+}
+
+#btn {
+    background-color: #10B981;
+    padding:.7em;
+    color: white;
+    font-size: medium;
+    font-weight: 500;
+    border: none;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+    border-radius:.5rem;
+}
+
+hr{
+    color: #273549;
+    position: absolute;
+    
+    width: 30rem;
+}
+
+#PassContainer{
+    border: 2px solid;
+    margin-top: 1.5em;
+    margin-right: 2em;
+    padding-bottom: 2.5rem;
+    width: 17em;
+    height: 3em;
+    line-height: normal;
+    display: block;
+    border-radius: .5rem;
+    background-color: #273549;
+    color:#000000;
+}
+.Password1{
+    color:#55F991;
+}
+.Password2{
+    color:#55F991;
+}
+
+#headline1{
+    margin-top: 2em;
+    color: aliceblue;
+    font-weight: 800;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+}
+
+#headline2{
+    margin-top: 0em;
+    margin-bottom: 0;
+    font-size: 2.5em;
+    color:#55F991;
+
+}
+#line{
+    color: #D5D4D8;
+}
+
+.password-container{
+    display: flex;
+    
+}
+
+.switch{
+    margin-top: 1em;
+    margin-left:.5em;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #273549;
+    -webkit-transition:.4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider{
+    background-color: #10B981;
+}
+
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before{
+    border-radius: 50%;
+}
