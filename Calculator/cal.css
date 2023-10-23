@@ -8,7 +8,8 @@ body{
     background-size: cover;
 }
 button{
-    width: 200px;
+    align-items: center;
+    width: 50px;
     height: 50px;
     margin: 2px 2px;
     background-color: blue;
@@ -28,9 +29,9 @@ button{
     padding: 5px;
 }
 #heading{
-    margin: auto;
+    margin-left: 370px;
     width: 412px;
-    font-size: xxx-large;
+    font-size: xx-large;
 }
 #btn{
     margin: auto;
@@ -39,12 +40,13 @@ button{
 }
 .btn-inside{
     width: 900px;
+   margin-left: 270px;
 }
 #val{
-    /* border: 2px solid red; */
+   /* border: 2px solid red; */
     height: 55px;
-    width: 783px;
-    margin-left: 100px;
+    width: 80px;
+    margin-left: 340px;
     color: white;
     padding-left: 37px;
     padding-top: 20px;
@@ -54,7 +56,7 @@ button{
     /* border: 2px solid red; */
     height: 50px;
     width: 783px;
-    margin-left: 100px;
+    margin-left: 340px;
     color: white;
     padding-left: 37px;
     padding-top: 25px;
