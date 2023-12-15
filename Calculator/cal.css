@@ -1,5 +1,5 @@
 body{
-    background-image: url(c10.jpg);
+    background-image: url(change.jpg);
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
@@ -8,10 +8,10 @@ body{
     background-size: cover;
 }
 button{
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 75px;
     margin: 2px 2px;
-    background-color: blue;
+    background-color:plum;
     color: #fff4a7;
     border-radius: 20px;
     font-weight: bolder;
@@ -31,9 +31,14 @@ button{
     margin: auto;
     width: 412px;
     font-size: xxx-large;
+    font-family: cursive;
+    font-weight: 900;
+    font-style: italic;
+    color: blueviolet;
 }
 #btn{
     margin: auto;
+    margin-left: 180px;
     margin-top: 20px;
     width: 815px;
 }
@@ -45,20 +50,21 @@ button{
     height: 55px;
     width: 783px;
     margin-left: 100px;
-    color: white;
+    color: rgb(231, 149, 149);
     padding-left: 37px;
     padding-top: 20px;
     font-weight: bolder;
+    font-size: 50px;
 }
 #res{
     /* border: 2px solid red; */
-    height: 50px;
+    height: 80px;
     width: 783px;
     margin-left: 100px;
-    color: white;
+    color: rgb(231, 149, 149);
     padding-left: 37px;
     padding-top: 25px;
     font-weight: bolder;
-    font-size: x-large;
+    font-size: 50px;
 }
 

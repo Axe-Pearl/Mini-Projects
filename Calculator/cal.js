@@ -4,10 +4,21 @@ function clearer(){
     valEl.innerText = ""
     resEl.innerText = ""
 }
-function adder(k){
-    valEl.innerText += k
-    if(k=='*' || k=='+' || k=='-' || k=='/'){
-        compute(0)
+function adder(k) {
+    if (resEl.innerText[0] == '=' && !(k == '*' || k == '+' || k == '-' || k == '/')) {
+        valEl.innerText = "";
+        resEl.innerText = "";
+        valEl.innerText = k;
+    } 
+    else {
+        valEl.innerText += k;
+    }
+
+    if (k == '*' || k == '+' || k == '-' || k == '/') {
+        compute(0);
+        if (resEl.innerText[0] == '=') {
+            resEl.innerText = "";
+        }
     }
 }
 function compute(is){
