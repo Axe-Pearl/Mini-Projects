@@ -33,7 +33,7 @@
         <label for="temp">Please Enter the Temperature you'd like to convert.</label>
         <div class="row my-3">
             <div class="col">
-                <input type="number" step="any" id="temp" class="form-control">
+                <input type="number" step="any" id="temp" class="form-control" oninput="validateInput(this)">
             </div>
             <div class="col">
                 <select name="temp_diff" class="form-control" id="temp_diff">
