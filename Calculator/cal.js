@@ -1,9 +1,5 @@
 let valEl = document.getElementById("val")
 let resEl = document.getElementById("res")
-function clearer(){
-    valEl.innerText = ""
-    resEl.innerText = ""
-}
 function adder(k) {
     if (resEl.innerText[0] == '=' && !(k == '*' || k == '+' || k == '-' || k == '/')) {
         valEl.innerText = "";
@@ -20,6 +16,10 @@ function adder(k) {
             resEl.innerText = "";
         }
     }
+}
+function clearer(){
+    valEl.innerText = ""
+    resEl.innerText = ""
 }
 function compute(is){
     let temp = valEl.innerText, i
