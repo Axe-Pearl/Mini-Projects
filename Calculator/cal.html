@@ -5,13 +5,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cal.css">
     <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #outside {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            margin: auto;
+        }
+
+        #heading {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        #val {
+            font-size: 2em;
+            margin: 0;
+            color: #333;
+        }
+
+        #res {
+            margin: 10px 0;
+            font-size: 1.5em;
+            color: #666;
+        }
+
+        #btn {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #e0e0e0;
+            color: #333;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d4d4d4;
+            color: #000;
+        }
+
+        button.operator {
+            background-color: #ff9500;
+            color: #fff;
+        }
+
+        button.operator:hover {
+            background-color: #e06c00;
+        }
+
+        button.double {
+            grid-column: span 2;
+        }
+    </style>
 </head>
 
 <body>
     <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
+        <h1 id="heading">🖩 CALCULATOR 🖩</h1>
         <div>
             <div>
                 <h1 id="val"> </h1>
@@ -20,31 +94,23 @@
                 <p id="res"></p>
             </div>
             <div id="btn">
-                <div class="btn-inside">
-                    <button onclick="adder('1')">1</button>
-                    <button onclick="adder('2')">2</button>
-                    <button onclick="adder('3')">3</button>
-                    <button onclick="adder('*')">*</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('4')">4</button>
-                    <button onclick="adder('5')">5</button>
-                    <button onclick="adder('6')">6</button>
-                    <button onclick="adder('+')">+</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('7')">7</button>
-                    <button onclick="adder('8')">8</button>
-                    <button onclick="adder('9')">9</button>
-                    <button onclick="adder('-')">-</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
-                    <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
-                    <button onclick="adder('/')">/</button>
-                </div>
+                <button onclick="clearer()" class="operator">C</button>
+                <button onclick="adder('/')" class="operator">/</button>
+                <button onclick="adder('*')" class="operator">x</button>
+                <button onclick="adder('-')" class="operator">-</button>
+                <button onclick="adder('7')">7</button>
+                <button onclick="adder('8')">8</button>
+                <button onclick="adder('9')">9</button>
+                <button onclick="adder('+')" class="operator">+</button>
+                <button onclick="adder('4')">4</button>
+                <button onclick="adder('5')">5</button>
+                <button onclick="adder('6')">6</button>
+                <button onclick="adder('1')">1</button>
+                <button onclick="adder('2')">2</button>
+                <button onclick="adder('3')">3</button>
+                <button onclick="adder('0')">0</button>
                 <button onclick="adder('.')">.</button>
+                <button onclick="compute(1)" class="double operator">=</button>
             </div>
         </div>
     </div>
@@ -52,3 +118,4 @@
 </body>
 
 </html>
+number should printed such a way 
