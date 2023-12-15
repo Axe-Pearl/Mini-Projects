@@ -32,6 +32,16 @@ setInterval(() => {
 
 tempLoad();
 
+function validateInput(input) {
+    input.value = input.value.replace(/[^0-9.]/g, '');
+
+    const decimalCount = (input.value.match(/\./g) || []).length;
+    if (decimalCount > 1) {
+        input.value = input.value.slice(0, -1);
+    }
+}
+
+
 const calculateTemp = () => {
     const numberTemp = document.getElementById('temp').value;
     // console.log(numberTemp);
