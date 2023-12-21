@@ -22,6 +22,12 @@ const Home = () => {
         }
     }
 
+    const editTodo = (id, newText) => {
+        setTodos((prev) =>
+          prev.map((t) => (t.id === id ? { ...t, text: newText } : t))
+        );
+      };
+
     const deleteTodo = (id) => {
         setTodos(prev => prev.filter(t => t.id !== id))
     }
@@ -61,7 +67,7 @@ const Home = () => {
             <div className='todo-list'>
                 {
                     todos.map((todo,index) => {
-                        return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} moveUp={moveUp} moveDown = {moveDown} total = {todos.length} index={index}/>
+                        return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} moveUp={moveUp} moveDown = {moveDown}  editTodo={editTodo} total = {todos.length} index={index}/>
                     })
                 }
             </div> ) : <p style={{textAlign:'center', marginTop:'10px', fontWeight:'bold'}}>No todo...</p>
