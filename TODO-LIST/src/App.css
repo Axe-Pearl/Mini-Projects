@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
+  width: 400px;
   padding: 10px;
   background-color: #E1F0F7;
   border-radius: 6px;
@@ -47,7 +47,7 @@ input:focus{
 }
 
 .todo {
-  width: 300px;
+  width: 400px;
   padding: 10px;
   background-color: #E1F0F7;
   border-radius: 6px;
@@ -118,4 +118,10 @@ input:focus{
   left:0;
   border-radius: 999px;
   transform: translateY(-10px) rotate(45deg);
+}
+.edit {
+  
+  cursor: pointer;
+  color: #1da1f2;
+  font-weight: 700;
 }
