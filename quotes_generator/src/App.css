@@ -1,0 +1,100 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+:root{
+    --pink-lace:#F5CCE8;
+    --plum-web:#EC9DED;
+    --middle-purple:#C880B7;
+    --pearly-purple:#9F6BA0;
+    --dark-purple:#4A2040;
+
+}
+
+
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: var(--dark-purple);
+    padding: 2rem;
+
+
+}
+
+.quote-wrapper{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 4rem, 1.5rem;
+    -webkit-box-shadow: 0px 2px 15px -5px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 1);
+    box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 1);
+   
+
+}
+.quote-wrapper h2{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+
+}
+
+.quote-wrapper small{
+    padding: 0.2rem 1rem;
+    font-weight: 700;
+    color: var(--dark-purple);
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.quote-wrapper blockquote{
+    padding: 1.4rem 0;
+    font-weight: 300;
+    margin: 2rem 2rem;
+
+}
+
+.quote-wrapper cite{
+    display: block;
+    font-style: normal;
+    margin-bottom: 1rem;
+    font-weight: 700;
+
+}
+
+.quote-wrapper button{
+    font-size: 1.1rem;
+    border: none;
+    background-color: var(--dark-purple);
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    outline: 0;
+    margin-bottom: 2rem;
+
+}
+
+.quote-wrapper button:hover{
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(159, 107, 160, 0.67);
+        -moz-box-shadow: 0px 0px 9px 0px rgba(159, 107, 160, 0.67);
+        box-shadow: 0px 0px 9px 0px rgba(159, 107, 160, 0.67);
+}
+
+
+@media screen and (min-width:680px){
+    .quote-wrapper{
+        width: 600px;
+    }
+}
