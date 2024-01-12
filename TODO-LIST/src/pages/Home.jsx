@@ -45,6 +45,22 @@ const Home = () => {
             setTodos([...todos])
         }
     }
+
+    //edit todo title on clicking
+    const editTodo = (id) => {
+        let index = todos.findIndex(t => t.id === id)
+        let newTitle = prompt('Enter new title')
+        if (newTitle && todos.findIndex(t => t.text === newTitle) === -1) {
+            todos[index].text = newTitle
+            setTodos([...todos])
+        }
+    }
+
+
+
+
+
+
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
     },[todos])
@@ -61,7 +77,7 @@ const Home = () => {
             <div className='todo-list'>
                 {
                     todos.map((todo,index) => {
-                        return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} moveUp={moveUp} moveDown = {moveDown} total = {todos.length} index={index}/>
+                        return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} moveUp={moveUp} moveDown = {moveDown} editTodo={editTodo} total = {todos.length} index={index}/>
                     })
                 }
             </div> ) : <p style={{textAlign:'center', marginTop:'10px', fontWeight:'bold'}}>No todo...</p>
