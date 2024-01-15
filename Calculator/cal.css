@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 body{
-    background-image: url(c10.jpg);
+    font-family: 'Outfit', sans-serif;
+    /* background-image: url(c10.jpg); */
     background-repeat: no-repeat;
-    height: 100%;
+    background-image: linear-gradient( 109.6deg,  rgba(62,161,219,1) 11.2%, rgba(93,52,236,1) 100.2% );
+    height: 100vh;
     width: 100%;
     overflow: hidden;
     background-position: center;
@@ -11,15 +14,16 @@ button{
     width: 200px;
     height: 50px;
     margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
+    background-color: #3468C0;
+    color: #fbfbfb;
+    border-radius: 5px;
+    font-weight: 700;
     font-style: italic;
     font-size: larger;
+    border: none;
 }
 #outside{
-    color: white;
+    color: #fbfbfb;
     border-radius: 5px;
     margin: auto;
     margin-top: 100px;
@@ -28,8 +32,10 @@ button{
     padding: 5px;
 }
 #heading{
+    color: #fbfbfb;
     margin: auto;
     width: 412px;
+    font-weight: 500;
     font-size: xxx-large;
 }
 #btn{
@@ -46,9 +52,8 @@ button{
     width: 783px;
     margin-left: 100px;
     color: white;
-    padding-left: 37px;
     padding-top: 20px;
-    font-weight: bolder;
+    font-weight: 600;
 }
 #res{
     /* border: 2px solid red; */
