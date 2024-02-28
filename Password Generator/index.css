@@ -39,7 +39,7 @@ hr{
     margin-right: 2em;
     padding-bottom: 2.5rem;
     width: 17em;
-    height: 3em;
+    height: 4.5em;
     line-height: normal;
     display: block;
     border-radius: .5rem;
@@ -74,9 +74,10 @@ hr{
 
 .password-container{
     display: flex;
-    
 }
-
+.password-container span{
+    color:aliceblue;
+}
 .switch{
     margin-top: 1em;
     margin-left:.5em;
