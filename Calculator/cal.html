@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cal.css">
     <title>Calculator</title>
+    <link rel="stylesheet" href="cal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-    <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
-        <div>
-            <div>
-                <h1 id="val"> </h1>
-            </div>
-            <div>
-                <p id="res"></p>
-            </div>
-            <div id="btn">
-                <div class="btn-inside">
-                    <button onclick="adder('1')">1</button>
-                    <button onclick="adder('2')">2</button>
-                    <button onclick="adder('3')">3</button>
-                    <button onclick="adder('*')">*</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('4')">4</button>
-                    <button onclick="adder('5')">5</button>
-                    <button onclick="adder('6')">6</button>
-                    <button onclick="adder('+')">+</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('7')">7</button>
-                    <button onclick="adder('8')">8</button>
-                    <button onclick="adder('9')">9</button>
-                    <button onclick="adder('-')">-</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
-                    <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
-                    <button onclick="adder('/')">/</button>
-                </div>
-                <button onclick="adder('.')">.</button>
-            </div>
+    <header>
+        <h1 class="logo">Calculator</h1>
+        <p class="tagline">Premium Calculator with Advanced Features</p>
+    </header>
+
+    <div class="calculator-container">
+        <div class="display">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
+        </div>
+
+        <div class="buttons-grid">
+            <button class="btn btn-clear glow-effect" data-action="clear">AC</button>
+            <button class="btn btn-delete glow-effect" data-action="delete">DEL</button>
+            <button class="btn btn-operator glow-effect" data-action="percentage">%</button>
+            <button class="btn btn-operator glow-effect" data-action="divide">÷</button>
+            
+            <button class="btn glow-effect" data-number="7">7</button>
+            <button class="btn glow-effect" data-number="8">8</button>
+            <button class="btn glow-effect" data-number="9">9</button>
+            <button class="btn btn-operator glow-effect" data-action="multiply">×</button>
+            
+            <button class="btn glow-effect" data-number="4">4</button>
+            <button class="btn glow-effect" data-number="5">5</button>
+            <button class="btn glow-effect" data-number="6">6</button>
+            <button class="btn btn-operator glow-effect" data-action="subtract">-</button>
+            
+            <button class="btn glow-effect" data-number="1">1</button>
+            <button class="btn glow-effect" data-number="2">2</button>
+            <button class="btn glow-effect" data-number="3">3</button>
+            <button class="btn btn-operator glow-effect" data-action="add">+</button>
+            
+            <button class="btn glow-effect" data-number="0">0</button>
+            <button class="btn glow-effect" data-number=".">.</button>
+            <button class="btn btn-equals glow-effect" data-action="equals">=</button>
         </div>
     </div>
+
+    <div class="advanced-features">
+        <button class="feature-btn" id="scientific-toggle">
+            <i class="fas fa-flask"></i> Scientific Mode
+        </button>
+        <button class="feature-btn" id="theme-toggle">
+            <i class="fas fa-palette"></i> Change Theme
+        </button>
+        <button class="feature-btn" id="history-toggle">
+            <i class="fas fa-history"></i> Calculation History
+        </button>
+    </div>
+
+    <footer>
+        <p>© 2023 Calc Premium | All Rights Reserved</p>
+    </footer>
+
     <script src="cal.js"></script>
 </body>
-
 </html>
