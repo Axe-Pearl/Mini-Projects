@@ -2,7 +2,7 @@ let valEl = document.getElementById("val")
 let resEl = document.getElementById("res")
 function clearer(){
     valEl.innerText = ""
-    resEl.innerText = ""
+    resEl.innerText = "" + eval(temp);
 }
 function adder(k){
     valEl.innerText += k
@@ -39,4 +39,21 @@ function compute(is){
             }
         } 
     }
+}
+
+//Instead of doing everything in compute, we can extract
+function parseAndCalculate(expression) {
+    let match = expression.match(/^(-?\d+(?:\.\d+)?)([+\-*/])(-?\d+(?:\.\d+)?)$/);
+    if(!match) return null;
+
+let part1 = parseFloat(match[1]);
+    let operator = match[2];
+    let parse2 = parseFloat(match[3]);
+
+switch(operator) {
+    case '+' :return part1 + part2;
+    case '-': return part1 - part2;
+    case '*': return part1 * part2;
+    case '/' : return part2 ===0 ? 'Error' : part1 /part2;
+}
 }
