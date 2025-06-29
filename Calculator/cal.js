@@ -4,6 +4,9 @@ function clearer(){
     valEl.innerText = ""
     resEl.innerText = ""
 }
+function remove(){
+    valEl.innerText=valEl.innerText.slice(0,-1);
+}
 function adder(k){
     valEl.innerText += k
     if(k=='*' || k=='+' || k=='-' || k=='/'){
@@ -31,7 +34,7 @@ function compute(is){
         }else{
             resEl.innerText = (part1)/(part2);
         }
-        resEl.innerText = '= ' + resEl.innerText
+        resEl.innerText = resEl.innerText
         if(!is){
             valEl.innerText = resEl.innerText + t
             if(valEl.innerText[0] == '='){

@@ -11,14 +11,16 @@
 
 <body>
     <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
+        
         <div>
-            <div>
-                <h1 id="val"> </h1>
+            <h1 id="heading">🖩CALCULATOR🖩</h1>
+            <div class="display">
+                <h1 id="val"></h1>
             </div>
-            <div>
+            <div class="display2"> 
                 <p id="res"></p>
             </div>
+            
             <div id="btn">
                 <div class="btn-inside">
                     <button onclick="adder('1')">1</button>
@@ -44,7 +46,13 @@
                     <button onclick="compute(1)">=</button>
                     <button onclick="adder('/')">/</button>
                 </div>
-                <button onclick="adder('.')">.</button>
+                <div class="btn-inside">
+                    <button onclick="adder('.')">.</button>
+                    <button onclick="adder('#')">#</button>
+                    <button onclick="adder('00')">00</button>
+                    <button onclick="remove()">DE</button>
+                </div>
+                
             </div>
         </div>
     </div>
