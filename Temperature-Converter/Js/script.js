@@ -40,17 +40,15 @@ const calculateTemp = () => {
     const valeTemp = temp_diff.options[tempSelected.selectedIndex].value;
     // console.log(valeTemp);
 
-
-    // Convert temperature from Celcius to Fahrenheit
+     // Convert temperature from Celcius to Fahrenheit
     const celTOfah = (cel) => {
-        let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
-    }
+        const fahrenheit = cel * (9 / 5) + 32;
+        return Number(fahrenheit.toFixed(2)); //Use toFixed(2) to retain two decimal places 
 
     // Convert temperature from Fahrenheit to Celsius
     const fahTOcel = (fehr) => {
-        let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
+        const celsius = (fehr - 32) * 5 / 9;
+        return Number(celsius.toFixed(2)); //Use toFixed(2) to retain two decimal places 
     }
 
     let result;
