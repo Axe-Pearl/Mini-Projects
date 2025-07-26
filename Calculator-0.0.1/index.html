@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width+device-width,initial-scale=1.0">
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<script src="index.js"></script>
+<body>
+    <button id ="toggle" onclick="toggleTheme()" class = "ui">🌙</button>
+  
+        
+    <div id="Calculator">
+        <input id="display" type="text" autocomplete="off">
+        
+        <div id="keys">
+            <button id="calc" dt ="(" onclick="appendToDisplay('(')">(</button>
+            <button id="calc" dt =")"" onclick="appendToDisplay(')')">)</button>
+            <button id="calc" onclick="dell()">CE</button>
+            
+            <button id="calc" dt ="/" onclick="appendToDisplay('/')" class="operator-btn">/</button>
+
+            <button id="calc"  dt="7" onclick="appendToDisplay('7')">7</button>
+            <button id="calc"  dt="8" onclick="appendToDisplay('8')">8</button>
+            <button id="calc"  dt="9" onclick="appendToDisplay('9')">9</button>
+            <button id="calc"  dt="*" onclick="appendToDisplay('*')" class="operator-btn">*</button>
+
+            <button id="calc"  dt="6" onclick="appendToDisplay('6')">6</button>
+            <button id="calc"  dt="5" onclick="appendToDisplay('5')">5</button>
+            <button id="calc"  dt="4" onclick="appendToDisplay('4')">4</button>
+      
+            <button id="calc"  dt="+" onclick="appendToDisplay('+')" class="operator-btn">+</button>
+                  
+            <button id="calc"  dt="3" onclick="appendToDisplay('3')">3</button>
+            <button id="calc"  dt="2" onclick="appendToDisplay('2')">2</button>
+            <button id="calc"  dt="1"onclick="appendToDisplay('1')">1</button>
+            
+            <button id="calc"  dt="-" onclick="appendToDisplay('-')" class="operator-btn">- </button>
+            <button id="calc"  dt="." onclick="appendToDisplay('.')">.</button>
+            
+            <button id="calc"  dt="." onclick="appendToDisplay('0')">0</button>
+            
+            <button id="calc"  onclick="clear_dis()">C</button>
+            <button id="calc"  onclick="compute()" class="operator-btn">=</button>
+            
+       
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+#calc{
+    width : 70px;
+    height: 70px;
+    border-radius: 6px;
+    border : none;
+    background-color:rgb(56, 54, 54);
+    font-size:20px;
+    color: beige;
+    
+    cursor: pointer;
+}
+
+button:hover{
+    filter : brightness(1.3);
+}
+
+
+body.white{
+    background-color: beige;
+}
+body.dark{
+    background-color: gray;
+}
+
+#keys{
+    display :grid;
+    grid-template-columns: repeat(4,71px);
+    gap:4px;
+    padding: 15px;
+    padding-top:0px;
+}
+
+#Calculator{
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    background-color:black;
+    border-radius: 15px;
+    max-width: 325px;
+    overflow: hidden;
+}
+
+#display{
+    display: block;
+    
+    margin: 10px auto;
+    width: 285px;
+    padding: 9px;
+    text-align: right;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    font-size: 30px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    cursor:text;
+    caret-color: transparent;
+    outline: none;
+
+}
+
+body{
+    margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body.dark #toggle{
+    background-color:rgb(255, 255, 255);
+    color: aliceblue;
+    
+}
+
+body.dark #Calculator{
+    background-color:rgb(222, 222, 204);
+}
+
+body.dark #display{
+    background-color:white;
+    color: black;
+}
+body.dark #calc{
+    background-color:rgb(255, 255, 255);
+    color : black;
+}
+
+body.dark #calc.operator-btn{
+    background-color: orange;
+
+}
+
+body.light{
+    background-color:aliceblue;
+}
+
+button:hover{
+    background-color: rgb(85, 84, 84);
+}
+
+#toggle{
+    position: fixed;
+    top : 5px;
+    right: 10px;
+    padding : 10px 15px;
+    height: 48px;
+    width: 48px;
+    background-color: rgb(110, 107, 107);
+    border-style: none;
+    border-radius: 50%;
+    object-fit: contain;
+    
+}
+
+#toggle.ui:hover{
+    filter: brightness(1.3);
+    filter:drop-shadow(2);
+    cursor: pointer;
+}
+
+#toggle.ui:active{
+    filter: brightness(3);
+    cursor: pointer;
+}
+
+
+
+#calc.operator-btn{
+    background-color: orange;
+}
+
+#calc.operator-btn:active{
+    background-color: rgb(260, 215, 126);
+}
