@@ -1,69 +1,81 @@
 console.log('Welcome to 🌡️ Temperature Converter');
 
+// Declare 'fa' globally
+const fa = document.getElementById('fa');
+
 const tempLoad = () => {
-    let fa = document.getElementById('fa');
-    fa.innerHTML = "&#xf2cb";
+    fa.innerHTML = "&#xf2cb;";
     fa.style.color = "#ffa41b";
 
     setTimeout(() => {
         fa.innerHTML = "&#xf2ca;";
         fa.style.color = "#ffa41b";
-    }, 1000)
+    }, 1000);
 
     setTimeout(() => {
         fa.innerHTML = "&#xf2c9;";
-    }, 2000)
+    }, 2000);
 
     setTimeout(() => {
         fa.innerHTML = "&#xf2c8;";
-    }, 3000)
+    }, 3000);
 
     setTimeout(() => {
         fa.innerHTML = "&#xf2c7;";
         fa.style.color = "#ff5151";
-    }, 4000)
-}
+    }, 4000);
+};
 
+// Call every 5 seconds
 setInterval(() => {
     fa.style.color = "#ffa41b";
     tempLoad();
 }, 5000);
 
-
-tempLoad();
+tempLoad(); // Initial call
 
 const calculateTemp = () => {
-    const numberTemp = document.getElementById('temp').value;
-    // console.log(numberTemp);
-
+    const numberTemp = parseFloat(document.getElementById('temp').value);
     const tempSelected = document.querySelector('#temp_diff');
-    const valeTemp = temp_diff.options[tempSelected.selectedIndex].value;
-    // console.log(valeTemp);
+    const valueTemp = tempSelected.options[tempSelected.selectedIndex].value;
 
-
-    // Convert temperature from Celcius to Fahrenheit
-    const celTOfah = (cel) => {
-        let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
+    if (isNaN(numberTemp)) {
+        document.getElementById('resultContainer').innerHTML = `❌ Please enter a valid number.`;
+        return;
     }
 
-    // Convert temperature from Fahrenheit to Celsius
-    const fahTOcel = (fehr) => {
-        let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
-    }
+    // Conversion logic
+    const celToFah = (cel) => ((cel * 9/5) + 32).toFixed(2);
+    const fahToCel = (fah) => ((fah - 32) * 5/9).toFixed(2);
 
     let result;
-    if (valeTemp == "cel") {
-        result = celTOfah(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
+    if (valueTemp === "cel") {
+        result = celToFah(numberTemp);
+        document.getElementById('resultContainer').innerHTML = `= ${result}° Fahrenheit`;
     } else {
-        result = fahTOcel(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
+        result = fahToCel(numberTemp);
+        document.getElementById('resultContainer').innerHTML = `= ${result}° Celsius`;
     }
 
     setTimeout(() => {
         window.location.reload();
     }, 1500);
-}
+};
 
+// 🌙 Dark Mode Toggle
+document.getElementById('themeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    // Optional: Save preference
+    if (document.body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// 🌅 Load Theme on Page Load
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+});
