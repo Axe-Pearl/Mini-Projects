@@ -44,13 +44,13 @@ const calculateTemp = () => {
     // Convert temperature from Celcius to Fahrenheit
     const celTOfah = (cel) => {
         let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
+        return parseInt(fahrenheit);
     }
 
     // Convert temperature from Fahrenheit to Celsius
     const fahTOcel = (fehr) => {
         let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
+        return parseInt(celsius);
     }
 
     let result;

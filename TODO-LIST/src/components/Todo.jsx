@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 
 const Todo = ({ todo,deleteTodo,moveUp,moveDown,total,index}) => {
+
+    const [todos, settodos] = useState(null);
+// added a seperate function for deleting todos
+    function deleteTodo(index) {
+        todos.filter((_, index) => { todo => != index });
+    }
     
     return (
         <div className='todo'>

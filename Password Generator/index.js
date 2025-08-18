@@ -28,14 +28,14 @@ const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numberChars = "0123456789";
 const specialChars = "!@#$%^&*";
 
-const generatePassword = (length) => {
-  const allChars = `${lowercaseChars}${uppercaseChars}${numberChars}${specialChars}`;
+const generatePassword = (length, allowlowercase, allowuppercase, allownumberchars, allowspecialchars) => {
   let password = "";
+  let allowedchars;
+  
+  allowedchars += allowlowercase ? lowercaseChars : null; allowedchars += allowuppercase ? uppercaseChars : null; 
+  allowedchars += allownumberchars ? numberChars : null; allowedchars += allowspecialchars ? specialChars : null;
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * allChars.length);
-    password += allChars.charAt(randomIndex);
-  }
+  if (allowedchars.length <= 0) { Throw new error("password must include more than 1 chars") }; 
   return password;
 };
 
