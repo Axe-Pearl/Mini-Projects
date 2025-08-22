@@ -1,64 +1,64 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+}
+
+.calculator {
+    border: 1px solid #717377;
+    padding: 20px;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+
+}
+
+input {
+    width: 320px;
+    border: none;
+    padding: 24px;
+    margin: 10px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgbs(84, 84, 84, 0.1);
+    font-size: 40px;
+    text-align: right;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: #ffffff;
+}
+
+button {
+    border: none;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.equalBtn {
+    background-color: #fb7c14;
+}
+
+.operator {
+    color: #6dee0a;
+}
