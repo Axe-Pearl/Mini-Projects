@@ -1,3 +1,4 @@
+
 let valEl = document.getElementById("val")
 let resEl = document.getElementById("res")
 function clearer(){
