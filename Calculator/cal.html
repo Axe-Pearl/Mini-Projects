@@ -14,7 +14,7 @@
         <h1 id="heading">🖩CALCULATOR🖩</h1>
         <div>
             <div>
-                <h1 id="val"> </h1>
+                <h1 id="val"></h1>
             </div>
             <div>
                 <p id="res"></p>
@@ -44,7 +44,11 @@
                     <button onclick="compute(1)">=</button>
                     <button onclick="adder('/')">/</button>
                 </div>
-                <button onclick="adder('.')">.</button>
+                <div class="btn-inside">
+                    <button onclick="adder('.')">.</button>
+                    <!-- New Delete Button -->
+                    <button onclick="deleter()">⌫</button>
+                </div>
             </div>
         </div>
     </div>

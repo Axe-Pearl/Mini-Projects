@@ -1,64 +1,106 @@
-body{
+body {
     background-image: url(c10.jpg);
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-position: center;
     background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+    font-family: Arial, sans-serif;
 }
 
+button {
+    min-width: 90px;
+    height: 55px;
+    margin: 4px;
+    background-color: #0044cc;
+    color: #fff4a7;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background-color: #003399;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #001a66;
+    transform: scale(0.95);
+}
+
+/* Special button styles */
+button.clear {
+    background-color: #cc0000;
+    color: white;
+}
+
+button.clear:hover {
+    background-color: #990000;
+}
+
+button.delete {
+    background-color: #ff8800;
+    color: white;
+}
+
+button.delete:hover {
+    background-color: #cc6e00;
+}
+
+#outside {
+    color: white;
+    border-radius: 10px;
+    width: 900px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+#heading {
+    margin: 10px auto 20px auto;
+    font-size: 2.5rem;
+}
+
+#btn {
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.btn-inside {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#val,
+#res {
+    height: 55px;
+    width: 90%;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 15px;
+    font-weight: bold;
+    color: white;
+    overflow-x: auto;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+#val {
+    font-size: 1.4rem;
+}
+
+#res {
+    font-size: 1.6rem;
+}
