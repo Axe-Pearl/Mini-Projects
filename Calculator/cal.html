@@ -7,47 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cal.css">
     <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
-        <div>
-            <div>
-                <h1 id="val"> </h1>
+<body class="flex flex-col items-center min-h-[100vh] min-w-[100vw] bg-blue-100 justify-center">
+
+        <section class="sm:w-[325px] flex flex-col items-center relative">
+        <img 
+            class="w-[100%] h-[200px] object-contain relative left-[2px]"
+            src="./images/doraemon.png"
+        />
+        <div class="bg-[#7fc4e7] px-5 w-[92%] sm:w-[300px] flex flex-col items-center rounded-b-[30px] ">
+            <div class="w-[100%] px-5 text-2xl">
+                <h1 id="val" class="bg-[#3e5d60] min-h-[45px] rounded content-center p-1 text-right"> </h1>
             </div>
-            <div>
-                <p id="res"></p>
-            </div>
-            <div id="btn">
-                <div class="btn-inside">
-                    <button onclick="adder('1')">1</button>
-                    <button onclick="adder('2')">2</button>
-                    <button onclick="adder('3')">3</button>
-                    <button onclick="adder('*')">*</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('4')">4</button>
-                    <button onclick="adder('5')">5</button>
-                    <button onclick="adder('6')">6</button>
-                    <button onclick="adder('+')">+</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('7')">7</button>
-                    <button onclick="adder('8')">8</button>
-                    <button onclick="adder('9')">9</button>
-                    <button onclick="adder('-')">-</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
-                    <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
-                    <button onclick="adder('/')">/</button>
-                </div>
+
+            <ul class="flex text-xl w-[100%] mt-7 pb-[30px]">
+                <li class="calculator_b_list text-sm">
+                    <button class="calculator_b memory_b text-xl" onclick="history_forward()">◀</button>
+                    <button class="calculator_b memory_b" onclick="memory_save_remove()">MRC</button>
+                    <button class="calculator_b memory_b" onclick="memory_compute('-')">M-</button>
+                    <button class="calculator_b memory_b" onclick="memory_compute('+')">M+</button>
+                    <button class="calculator_b memory_b" onclick="adder('%')">%</button>
+                </li>
+                <li class="calculator_b_list">
+                    <button class="calculator_b number_b" onclick="history_back()">▶</button>
+                    <button class="calculator_b number_b" onclick="adder('7')">7</button>
+                    <button class="calculator_b number_b" onclick="adder('4')">4</button>
+                    <button class="calculator_b number_b" onclick="adder('1')">1</button>
+                    <button class="calculator_b number_b" onclick="adder('0')">0</button>
+                </li>
+                <li class="calculator_b_list">
+                    <button class="calculator_b operator_b text-sm pt-[5px]" onclick="remover()">DEL</button>
+                    <button class="calculator_b number_b" onclick="adder('8')">8</button>
+                    <button class="calculator_b number_b" onclick="adder('5')">5</button>
+                    <button class="calculator_b number_b" onclick="adder('2')">2</button>
+                    <button class="calculator_b number_b text-[30px] pb-[5px]" onclick="adder('.')">.</button>
+                </li>
+                <li class="calculator_b_list">
+                    <button class="calculator_b operator_b" onclick="clearer()">C</button>
+                    <button class="calculator_b number_b" onclick="adder('9')">9</button>
+                    <button class="calculator_b number_b" onclick="adder('6')">6</button>
+                    <button class="calculator_b number_b" onclick="adder('3')">3</button>
+                    <button class="calculator_b operator_b pb-[5px]" onclick="compute(1)">=</button>
+                </li>
+                <li class="calculator_b_list">
+                    <button class="calculator_b operator_b text-[30px]" onclick="adder('÷')">÷</button>
+                    <button class="calculator_b operator_b" onclick="adder('x')">x</button>
+                    <button class="calculator_b operator_b" onclick="adder('-')">–</button>
+                    <button class="calculator_b operator_b flex-1 rounded-[30px] text-[30px]" onclick="adder('+')">+</button>
+                </li>
                 <button onclick="adder('.')">.</button>
-            </div>
+            </ul>
         </div>
-    </div>
+        </section>
     <script src="cal.js"></script>
 </body>
 
