@@ -1,64 +1,101 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+body {
+  background-image: url(c10.jpg);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 
+/*contenedor principal*/
+#outside {
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1000px;
+  height: 600px;
+  padding: 5px;
+  border: 2px solid rgb(249, 244, 244);
+  border-radius: 20px;
+}
+/*Titulo*/
+#heading {
+  justify-content: center;
+  flex-direction: column;
+  font-size: xxx-large;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  margin: 2px 2px;
+  background-color: blue;
+  color: #fff4a7;
+  border-radius: 20px;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: larger;
+}
+/*Contenedor de botones*/
+#btn {
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid blue;
+  width: 40%;
+  justify-items: center;
+  margin: auto;
+}
+/*sections diferentes display, monitor, botones*/
+section {
+  display: flex;
+  justify-content: center;
+}
+section button {
+  width: 8%;
+}
+/*Contenedor de botones interno*/
+.btn-inside {
+  width: 900px;
+}
+/*Contenedor del boton punto*/
+.btn-punto {
+  display: flex;
+  justify-self: center;
+}
+/*Contenedores display, donde se digitan los numeros*/
+.display {
+  border: 2px solid rgb(11, 11, 238);
+  border-radius: 25px;
+  width: 40%;
+  height: 55px;
+  margin: auto;
+}
+/*Contenedor monitor, donde se muestra el resultado*/
+.monitor {
+  border: 2px solid rgb(11, 11, 238);
+  border-radius: 25px;
+  width: 40%;
+  height: 55px;
+  margin: auto;
+  padding-bottom: 5px;
+}
+/*item de display*/
+#val {
+  height: 55px;
+  color: white;
+  font-weight: bolder;
+  justify-items: center;
+}
+#res {
+  height: 50px;
+  width: 40%;
+  color: white;
+  text-align: center;
+  font-weight: bolder;
+  font-size: x-large;
+}
