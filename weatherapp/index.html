@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .weather-card {
+      background: #ffffffdd;
+      backdrop-filter: blur(8px);
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px;
+      animation: fadeIn 0.7s ease-in-out;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+      font-size: 16px;
+      background: #f4f4f4;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      background: #eaeaea;
+    }
+
+    .search-box button {
+      padding: 10px 18px;
+      border: none;
+      background: #4e54c8;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-box button:hover {
+      background: #3c40a2;
+    }
+
+    .weather-result {
+      margin-top: 10px;
+      font-size: 17px;
+      color: #444;
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-card">
+    <h1>🌤️ Weather Finder</h1>
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Enter city name..." />
+      <button onclick="getWeather()">Search</button>
+    </div>
+    <div id="weatherResult" class="weather-result">
+      <p>Type a city and hit Search!</p>
+    </div>
+  </div>
+
+  <!-- External JS file -->
+  <script src="script.js"></script>
+</body>
+</html>
