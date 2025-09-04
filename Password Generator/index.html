@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Password Generator</title>
-  </head>
-  <body>
-    <div class="container">
-      <h2 id="headline1">Generate a</h2>
-      <h2 id="headline2">random password</h2>
-      <p id="line">Never use an insecure password</p>
-      <button id="btn">Generate Password</button>
-      <hr />
-      <div class="password-container">
-        <button id="PassContainer">
-          <p class="Password1"></p>
-        <button id="PassContainer">
-          <p class="Password2"></p>
-      </div>
-      <label class="switch" for="modeChanger">
-        <input type="checkbox" id="modeChanger">
-        <span class="slider round"></span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Password Generator</title>
+</head>
+<body>
+  <div class="container">
+    <h2 id="headline1">Generate a</h2>
+    <h2 id="headline2">random password</h2>
+    <p id="line">Never use an insecure password</p>
+
+    <button id="btn">Generate Password</button>
+    <hr />
+
+    <div class="options">
+      <label>
+        Length: <input type="number" id="length" min="6" max="32" value="12">
       </label>
-      
+      <label><input type="checkbox" id="include-lower" checked> Lowercase</label>
+      <label><input type="checkbox" id="include-upper" checked> Uppercase</label>
+      <label><input type="checkbox" id="include-numbers" checked> Numbers</label>
+      <label><input type="checkbox" id="include-symbols" checked> Symbols</label>
     </div>
-  </body>
+
+    <div class="password-container">
+      <div class="password-box">
+        <p class="Password1">••••••••••••</p>
+        <div class="strength strength1">Strength: N/A</div>
+      </div>
+      <div class="password-box">
+        <p class="Password2">••••••••••••</p>
+        <div class="strength strength2">Strength: N/A</div>
+      </div>
+    </div>
+
+    <label class="switch">
+      <input type="checkbox" id="modeChanger">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
   <script src="index.js"></script>
+</body>
 </html>
