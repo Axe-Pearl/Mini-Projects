@@ -1,42 +1,104 @@
-let valEl = document.getElementById("val")
-let resEl = document.getElementById("res")
-function clearer(){
-    valEl.innerText = ""
-    resEl.innerText = ""
+let valEl = document.getElementById("val");
+let resEl = document.getElementById("res");
+let historyEl = document.getElementById("history");
+let historyPanel = document.getElementById("history-panel");
+let historyToggle = document.getElementById("history-toggle");
+let themeToggle = document.getElementById("theme-toggle");
+
+// Load history from localStorage
+let calcHistory = JSON.parse(localStorage.getItem("calcHistory") || "[]");
+updateHistory();
+
+// ------------------ Calculator Functions ------------------
+
+// Clear display
+function clearer() {
+    valEl.value = "";
+    resEl.innerText = "";
 }
-function adder(k){
-    valEl.innerText += k
-    if(k=='*' || k=='+' || k=='-' || k=='/'){
-        compute(0)
+
+// Add number/operator
+function adder(k) {
+    let lastChar = valEl.value.slice(-1);
+    if ("+-*/".includes(k) && "+-*/".includes(lastChar)) {
+        valEl.value = valEl.value.slice(0, -1) + k;
+    } else {
+        valEl.value += k;
     }
 }
-function compute(is){
-    let temp = valEl.innerText, i
-    let t = temp[temp.length-1];
-    for(i=0;i<temp.length-1;i++){
-        if((temp[i]=='*' || temp[i]=='+' || temp[i]=='-' || temp[i]=='/') && i!=0){
-            break;
+
+// Backspace
+function backspace() {
+    valEl.value = valEl.value.slice(0, -1);
+}
+
+// Compute expression
+function computeFinal() {
+    try {
+        let expr = valEl.value;
+        if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
+            resEl.innerText = "Invalid Input";
+            return;
         }
-    }
-    if(i!=temp.length-1){
-        let part1 = parseFloat(temp.substring(0,i));
-        let part2 = parseFloat(temp.substring(i+1));
-        let k5 = temp[i];
-        if(k5=='+'){
-            resEl.innerText = (part1)+(part2);
-        }else if(k5=='-'){
-            resEl.innerText = (part1)-(part2);
-        }else if(k5=='*'){
-            resEl.innerText = (part1)*(part2);
-        }else{
-            resEl.innerText = (part1)/(part2);
+        let result = eval(expr);
+        if (result === Infinity || result === -Infinity || isNaN(result)) {
+            resEl.innerText = "Error";
+        } else {
+            resEl.innerText = "= " + result;
+            saveHistory(expr + " = " + result);
         }
-        resEl.innerText = '= ' + resEl.innerText
-        if(!is){
-            valEl.innerText = resEl.innerText + t
-            if(valEl.innerText[0] == '='){
-                valEl.innerText = valEl.innerText.substring(1)
-            }
-        } 
+    } catch (e) {
+        resEl.innerText = "Error";
     }
 }
+
+// ------------------ History Functions ------------------
+
+// Save calculation to history
+function saveHistory(entry) {
+    calcHistory.unshift(entry); // latest first
+    if (calcHistory.length > 20) calcHistory.pop(); // keep last 20
+    localStorage.setItem("calcHistory", JSON.stringify(calcHistory));
+    updateHistory();
+}
+
+// Update history panel
+function updateHistory() {
+    historyEl.innerHTML = "";
+    calcHistory.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item;
+        li.onclick = () => {
+            valEl.value = item.split('=')[0].trim();
+            resEl.innerText = "";
+        };
+        historyEl.appendChild(li);
+    });
+}
+
+// Toggle history panel
+historyToggle.addEventListener("click", () => {
+    if (historyPanel.style.right === "0px") {
+        historyPanel.style.right = "-250px";
+    } else {
+        historyPanel.style.right = "0px";
+    }
+});
+
+// ------------------ Theme Toggle ------------------
+themeToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+});
+
+// ------------------ Optional: Keyboard support ------------------
+document.addEventListener("keydown", (e) => {
+    if ((e.key >= '0' && e.key <= '9') || "+-*/.".includes(e.key)) {
+        adder(e.key);
+    } else if (e.key === "Enter") {
+        computeFinal();
+    } else if (e.key === "Backspace") {
+        backspace();
+    } else if (e.key === "Escape") {
+        clearer();
+    }
+});
