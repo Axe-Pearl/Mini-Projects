@@ -62,8 +62,5 @@ const calculateTemp = () => {
         document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
     }
 
-    setTimeout(() => {
-        window.location.reload();
-    }, 1500);
 }
 
