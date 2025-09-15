@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,4 +27,71 @@
     </div>
   </body>
   <script src="index.js"></script>
+</html> -->
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Enhanced Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Generate a <br><span>random password</span></h2>
+        <p class="subtitle">Never use an insecure password again.</p>
+
+        <div class="password-display-container">
+            <input type="text" id="passwordDisplay" placeholder="Your new password" readonly>
+            <button id="copyBtn" title="Copy to clipboard">
+                <i class="fa-regular fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="options-container">
+            <div class="option">
+                <label for="length">Password Length</label>
+                <div class="length-control">
+                    <input type="range" id="length" min="8" max="32" value="16">
+                    <span id="lengthValue">16</span>
+                </div>
+            </div>
+
+            <div class="option">
+                <input type="checkbox" id="includeUppercase" checked>
+                <label for="includeUppercase">Include Uppercase Letters (A-Z)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="includeLowercase" checked>
+                <label for="includeLowercase">Include Lowercase Letters (a-z)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="includeNumbers" checked>
+                <label for="includeNumbers">Include Numbers (0-9)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="includeSymbols">
+                <label for="includeSymbols">Include Symbols (!@#$...)</label>
+            </div>
+        </div>
+
+        <div class="strength-container">
+            <span>STRENGTH</span>
+            <div id="strengthIndicator" class="strength-weak"></div>
+        </div>
+
+        <button id="generateBtn" class="primary-btn">Generate Password</button>
+
+        <div class="theme-switcher">
+            <label for="modeChanger">Dark Mode</label>
+            <label class="switch">
+              <input type="checkbox" id="modeChanger">
+              <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
 </html>
