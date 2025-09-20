@@ -28,15 +28,27 @@ const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numberChars = "0123456789";
 const specialChars = "!@#$%^&*";
 
-const generatePassword = (length) => {
-  const allChars = `${lowercaseChars}${uppercaseChars}${numberChars}${specialChars}`;
-  let password = "";
+const allChars = `${lowercaseChars}${uppercaseChars}${numberChars}${specialChars}`;
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * allChars.length);
-    password += allChars.charAt(randomIndex);
+const getRandomChar = (chars) =>
+  chars[Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] % chars.length)];
+
+const generatePassword = (length) => {
+  if (length < 4) throw new Error("Password length must be at least 4");
+
+  // guarantee one of each char type is used
+  const passwordChars = [lowercaseChars, uppercaseChars, numberChars, specialChars].map(getRandomChar);
+
+  // fill the rest
+  passwordChars.push(...Array.from({ length: length - 4 }, () => getRandomChar(allChars)));
+
+  // shuffle the result
+  for (let i = passwordChars.length - 1; i > 0; i--) {
+    const j = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] % (i + 1));
+    [passwordChars[i], passwordChars[j]] = [passwordChars[j], passwordChars[i]];
   }
-  return password;
+
+  return passwordChars.join("");
 };
 
 const displayPassword = () => {
