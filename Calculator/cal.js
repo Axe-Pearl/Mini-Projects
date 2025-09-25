@@ -1,42 +1,86 @@
-let valEl = document.getElementById("val")
-let resEl = document.getElementById("res")
+let valEl = document.getElementById("val");
+let resEl = document.getElementById("res");
+let num1,num2;
+let firstlen;
+let flag=null;
+
 function clearer(){
     valEl.innerText = ""
     resEl.innerText = ""
+    flag=null;
 }
+
 function adder(k){
-    valEl.innerText += k
-    if(k=='*' || k=='+' || k=='-' || k=='/'){
-        compute(0)
-    }
-}
-function compute(is){
-    let temp = valEl.innerText, i
-    let t = temp[temp.length-1];
-    for(i=0;i<temp.length-1;i++){
-        if((temp[i]=='*' || temp[i]=='+' || temp[i]=='-' || temp[i]=='/') && i!=0){
-            break;
+    if((k=='*' || k=='+' || k=='-' || k=='/') && flag==null){
+
+        
+        firstlen=valEl.innerText.length;
+        if(firstlen==0){
+            valEl.innerText="";
+            flag=null;
+            resEl.innerText="Wrong Input";
+            return;
         }
+        num1= parseFloat(valEl.innerText.substring(0,firstlen));
+        flag=k;
     }
-    if(i!=temp.length-1){
-        let part1 = parseFloat(temp.substring(0,i));
-        let part2 = parseFloat(temp.substring(i+1));
-        let k5 = temp[i];
-        if(k5=='+'){
-            resEl.innerText = (part1)+(part2);
-        }else if(k5=='-'){
-            resEl.innerText = (part1)-(part2);
-        }else if(k5=='*'){
-            resEl.innerText = (part1)*(part2);
-        }else{
-            resEl.innerText = (part1)/(part2);
-        }
-        resEl.innerText = '= ' + resEl.innerText
-        if(!is){
-            valEl.innerText = resEl.innerText + t
-            if(valEl.innerText[0] == '='){
-                valEl.innerText = valEl.innerText.substring(1)
+    else if((k=='*' || k=='+' || k=='-' || k=='/') && flag!=null){
+            if((valEl.innerText.length-(firstlen + 1))==0){
+                valEl.innerText="";
+                flag=null;
+                resEl.innerText="Wrong Input";
+                return;
             }
-        } 
+
+            num2= parseFloat(valEl.innerText.substring(firstlen + 1, valEl.innerText.length));
+            if(flag=='+'){
+                valEl.innerText= (num1+num2);
+            }   else if(flag=='-'){
+                valEl.innerText= (num1-num2);
+            }   else if(flag=='*'){
+                valEl.innerText= (num1*num2);
+            }   else if(flag=='/'){
+                valEl.innerText= (num1/num2);
+            }
+            firstlen=valEl.innerText.length;
+            num1 = parseFloat(valEl.innerText); 
+            flag=k;
+
+        
     }
+    else if(k=='=' && flag!=null){
+        if(firstlen==0 || (valEl.innerText.length-(firstlen + 1))==0){
+            valEl.innerText="";
+                flag=null;
+                resEl.innerText="Wrong Input";
+                return;
+        }
+
+
+        num2= parseFloat(valEl.innerText.substring(firstlen + 1, valEl.innerText.length));
+            if(flag=='+'){
+                valEl.innerText= (num1+num2);
+                resEl.innerText=(num1+num2);
+            }   else if(flag=='-'){
+                valEl.innerText= (num1-num2);
+                resEl.innerText=(num1-num2);
+            }   else if(flag=='*'){
+                valEl.innerText= (num1*num2);
+                resEl.innerText=(num1*num2);
+            }   else if(flag=='/'){
+                valEl.innerText= (num1/num2);
+                resEl.innerText=(num1/num2);
+            }
+         
+        flag=null;
+    }
+    else if(k=='=' && flag==null){
+        resEl.innerText=valEl.innerText;
+    }
+
+    if(k!='=')
+        valEl.innerText+=k;
+    
+    
 }
+
