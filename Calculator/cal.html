@@ -11,12 +11,12 @@
 
 <body>
     <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
+        <h1 id="heading">CALCULATOR</h1>
         <div>
-            <div>
+            <div id="input">
                 <h1 id="val"> </h1>
             </div>
-            <div>
+            <div id="result">
                 <p id="res"></p>
             </div>
             <div id="btn">
@@ -41,7 +41,7 @@
                 <div class="btn-inside">
                     <button onclick="clearer()">C</button>
                     <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
+                    <button onclick="adder('=')">=</button>
                     <button onclick="adder('/')">/</button>
                 </div>
                 <button onclick="adder('.')">.</button>
