@@ -42,8 +42,12 @@ button{
 }
 #val{
     /* border: 2px solid red; */
-    height: 55px;
+    height: auto;
     width: 783px;
+    text-wrap: wrap;
+    overflow-y: auto; 
+    word-wrap: break-word; /* force long words to wrap */
+    overflow-x: hidden;    /* hide horizontal scroll */
     margin-left: 100px;
     color: white;
     padding-left: 37px;
