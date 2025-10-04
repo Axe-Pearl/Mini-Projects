@@ -10,4 +10,10 @@ setInterval(() => {
     hour.style.transform = `rotate(${hrotation}deg)`;
     minute.style.transform = `rotate(${mrotation}deg)`;
     second.style.transform = `rotate(${srotation}deg)`;
+
+     // Digital clock
+    const hStr = htime.toString().padStart(2, "0");
+    const mStr = mtime.toString().padStart(2, "0");
+    const sStr = stime.toString().padStart(2, "0");
+    digitalClock.textContent = `${hStr}:${mStr}:${sStr}`;
 }, 1000);
