@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Password Generator</title>
-  </head>
-  <body>
-    <div class="container">
-      <h2 id="headline1">Generate a</h2>
-      <h2 id="headline2">random password</h2>
-      <p id="line">Never use an insecure password</p>
-      <button id="btn">Generate Password</button>
-      <hr />
-      <div class="password-container">
-        <button id="PassContainer">
-          <p class="Password1"></p>
-        <button id="PassContainer">
-          <p class="Password2"></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Password Generator</title>
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1F2937;
+      color: aliceblue;
+      flex-direction: column;
+    }
+    .container {
+      text-align: center;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    .password-container {
+      margin-top: 20px;
+    }
+    .pass-box {
+      margin: 10px 0;
+    }
+    .Password {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+  </style> -->
+</head>
+<body>
+  <div class="container">
+    <h2 id="headline1">Generate a</h2>
+    <h2 id="headline2">random password</h2>
+    <p id="line">Never use an insecure password</p>
+    <button id="btn">Generate Passwords</button>
+    <hr />
+    <div class="password-container">
+      <div class="pass-box">
+        <p id="Password1" class="Password"></p>
+        <button class="copyBtn" data-target="Password1">Copy</button>
       </div>
-      <label class="switch" for="modeChanger">
-        <input type="checkbox" id="modeChanger">
-        <span class="slider round"></span>
-      </label>
-      
+      <div class="pass-box">
+        <p id="Password2" class="Password"></p>
+        <button class="copyBtn" data-target="Password2">Copy</button>
+      </div>
     </div>
-  </body>
+    <label class="switch" for="modeChanger">
+      <input type="checkbox" id="modeChanger">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  
   <script src="index.js"></script>
+</body>
 </html>
