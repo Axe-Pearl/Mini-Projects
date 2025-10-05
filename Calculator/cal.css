@@ -1,64 +1,77 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+body {
+  background: linear-gradient(135deg, #f5d0c5, #c3f0ca);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
 }
 
+#outside {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 30px;
+  width: 320px;
+  text-align: center;
+}
+
+#heading {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#display {
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+  min-height: 60px;
+}
+
+#val {
+  margin: 0;
+  font-size: 24px;
+  color: #222;
+  word-wrap: break-word;
+}
+
+#res {
+  margin: 0;
+  font-size: 18px;
+  color: #007b5e;
+}
+
+#btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #007b5e;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.95);
+}

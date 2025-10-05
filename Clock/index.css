@@ -3,8 +3,8 @@
     margin: auto;
     height: 40vw;
     width: 40vw; 
-    background: url(clock.png) no-repeat;
-    background-size: 100%;
+    background: url('clock.png') no-repeat center center;
+    background-size: cover;
 }
 
 #hour, #minute, #second{
@@ -12,6 +12,7 @@
     background: black;
     border-radius: 10px; 
     transform-origin: bottom;
+    z-index: 2;
 }
 #hour{
     width: 1.8%;
@@ -33,5 +34,25 @@
     top: 9%;
     left: 49.25%;
     opacity: 0.8; 
-    
+}
+
+#dayDateContainer{
+    margin: 20px auto 0 auto; /* space above, centered */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+#day{
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+#date{
+    font-size: 1.8vw;
+    margin-top: 5px;
+    padding: 8px 12px;
+    display: inline-block;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 8px;
 }
