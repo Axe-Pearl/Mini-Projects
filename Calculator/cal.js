@@ -1,42 +1,43 @@
-let valEl = document.getElementById("val")
-let resEl = document.getElementById("res")
-function clearer(){
-    valEl.innerText = ""
-    resEl.innerText = ""
+const valEl = document.getElementById("val");
+const resEl = document.getElementById("res");
+
+function clearer() {
+  valEl.innerText = "";
+  resEl.innerText = "";
 }
-function adder(k){
-    valEl.innerText += k
-    if(k=='*' || k=='+' || k=='-' || k=='/'){
-        compute(0)
-    }
+
+function adder(k) {
+  valEl.innerText += k;
+  if ("*+-/".includes(k)) compute(false);
 }
-function compute(is){
-    let temp = valEl.innerText, i
-    let t = temp[temp.length-1];
-    for(i=0;i<temp.length-1;i++){
-        if((temp[i]=='*' || temp[i]=='+' || temp[i]=='-' || temp[i]=='/') && i!=0){
-            break;
-        }
-    }
-    if(i!=temp.length-1){
-        let part1 = parseFloat(temp.substring(0,i));
-        let part2 = parseFloat(temp.substring(i+1));
-        let k5 = temp[i];
-        if(k5=='+'){
-            resEl.innerText = (part1)+(part2);
-        }else if(k5=='-'){
-            resEl.innerText = (part1)-(part2);
-        }else if(k5=='*'){
-            resEl.innerText = (part1)*(part2);
-        }else{
-            resEl.innerText = (part1)/(part2);
-        }
-        resEl.innerText = '= ' + resEl.innerText
-        if(!is){
-            valEl.innerText = resEl.innerText + t
-            if(valEl.innerText[0] == '='){
-                valEl.innerText = valEl.innerText.substring(1)
-            }
-        } 
-    }
+
+function compute(final) {
+  const exp = valEl.innerText;
+  const t = exp.slice(-1);
+  const match = exp.match(/([-]?\d+\.?\d*)([+\-*/])(\d+\.?\d*)$/);
+  if (!match) return;
+
+  const [, num1, op, num2] = match.map(x => isNaN(x) ? x : parseFloat(x));
+  let result = 0;
+
+  switch (op) {
+    case '+': result = num1 + num2; break;
+    case '-': result = num1 - num2; break;
+    case '*': result = num1 * num2; break;
+    case '/': result = num1 / num2; break;
+  }
+
+  resEl.innerText = `= ${result}`;
+  if (!final) valEl.innerText = `${result}${t !== '=' ? t : ''}`;
+}
+
+function computeLog() {
+  const val = parseFloat(valEl.innerText);
+  if (isNaN(val)) {
+    resEl.innerText = "Error: Enter a number";
+    return;
+  }
+  const logValue = Math.log10(val);
+  resEl.innerText = `log(${val}) = ${logValue.toFixed(4)}`;
+  valEl.innerText = logValue;
 }
