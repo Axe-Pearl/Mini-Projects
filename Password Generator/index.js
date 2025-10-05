@@ -38,12 +38,42 @@ const generatePassword = (length) => {
   }
   return password;
 };
+const getPasswordStrength = (password) => {
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[\W_]/.test(password)) strength++;
+
+    if (strength <= 2) return { text: "Weak", color: "red" };
+    else if (strength === 3 || strength === 4) return { text: "Medium", color: "orange" };
+    else return { text: "Strong", color: "green" };
+};
+
 
 const displayPassword = () => {
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+
+  const pwd1 = generatePassword(13);
+  const pwd2 = generatePassword(12);
+
+  dPassword1.textContent = pwd1;
+  dPassword2.textContent = pwd2;
+
+  // Display strength
+  const strength1 = getPasswordStrength(pwd1);
+  const strength2 = getPasswordStrength(pwd2);
+
+  const s1 = document.querySelector(".strength1");
+  const s2 = document.querySelector(".strength2");
+
+  s1.textContent = `Strength: ${strength1.text}`;
+  s1.style.color = strength1.color;
+
+  s2.textContent = `Strength: ${strength2.text}`;
+  s2.style.color = strength2.color;
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
