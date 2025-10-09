@@ -3,15 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock Using Pure JS</title>
+    <title>Enhanced JS Clock</title>
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
 </head>
 <body>
+
+    <div class="controls-container">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+
+        <select id="timezone-selector">
+            <option value="Asia/Kolkata">India (IST)</option>
+            <option value="Europe/London">London (GMT)</option>
+            <option value="America/New_York">New York (EST)</option>
+            <option value="America/Los_Angeles">Los Angeles (PST)</option>
+            <option value="Australia/Sydney">Sydney (AEST)</option>
+            <option value="Asia/Tokyo">Tokyo (JST)</option>
+        </select>
+    </div>
+
     <div id="clockContainer">
         <div id="hour"></div>
         <div id="minute"></div>
         <div id="second"></div>
     </div>
+
+    <div id="digital-display">
+        <div id="digital-time">00:00:00</div>
+        <div id="date-display">Date</div>
+    </div>
+
+    <div id="stopwatch-container">
+        <h2>Stopwatch</h2>
+        <div id="stopwatch-display">00:00:00.000</div>
+        <div class="stopwatch-controls">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn">Stop</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>

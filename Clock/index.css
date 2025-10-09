@@ -1,37 +1,132 @@
-#clockContainer{  
-    position: relative;
-    margin: auto;
-    height: 40vw;
-    width: 40vw; 
-    background: url(clock.png) no-repeat;
-    background-size: 100%;
+/* --- General Body and Theme Styling --- */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#hour, #minute, #second{
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* --- Analog Clock --- */
+#clockContainer {
+    position: relative;
+    margin: 20px auto;
+    height: 40vmin; /* Using vmin for better responsiveness */
+    width: 40vmin;
+    background: url(clock.png) no-repeat;
+    background-size: 100%;
+    transition: filter 0.3s;
+}
+
+body.dark-mode #clockContainer {
+    filter: invert(1);
+}
+
+#hour, #minute, #second {
     position: absolute;
     background: black;
-    border-radius: 10px; 
+    border-radius: 10px;
     transform-origin: bottom;
 }
-#hour{
-    width: 1.8%;
-    height: 25%;
-    top: 25%;
-    left: 48.85%;
-    opacity: 0.8;  
+
+#hour { width: 1.8%; height: 25%; top: 25%; left: 49.1%; }
+#minute { width: 1.6%; height: 35%; top: 15%; left: 49.2%; }
+#second { width: 1%; height: 40%; top: 10%; left: 49.5%; background-color: red; }
+
+
+/* --- Digital Clock and Date --- */
+#digital-display {
+    text-align: center;
+    margin-top: 20px;
 }
-#minute{
-    width: 1.6%;
-    height: 30%;
-    top: 19%;
-    left: 48.9%;
-    opacity: 0.8;  
+
+#digital-time {
+    font-size: 3rem;
+    font-weight: 600;
 }
-#second{
-    width: 1%;
-    height: 40%;
-    top: 9%;
-    left: 49.25%;
-    opacity: 0.8; 
-    
+
+#date-display {
+    font-size: 1.2rem;
+    margin-top: 5px;
 }
+
+
+/* --- Top Controls (Toggle & Timezone) --- */
+.controls-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#timezone-selector {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+body.dark-mode #timezone-selector {
+    background-color: #333;
+    color: #f0f0f0;
+    border-color: #555;
+}
+
+/* Fancy Toggle Switch */
+.switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #4CAF50; }
+input:checked + .slider:before { transform: translateX(26px); }
+
+
+/* --- Stopwatch --- */
+#stopwatch-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+body.dark-mode #stopwatch-container {
+    border-color: #555;
+}
+
+#stopwatch-display {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px 0 20px 0;
+}
+
+.stopwatch-controls button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+#startBtn { background-color: #4CAF50; /* Green */ }
+#stopBtn { background-color: #f44336;  /* Red */ }
+#resetBtn { background-color: #555;   /* Grey */ }
+
+#startBtn:hover { background-color: #45a049; }
+#stopBtn:hover { background-color: #da190b; }
+#resetBtn:hover { background-color: #333; }

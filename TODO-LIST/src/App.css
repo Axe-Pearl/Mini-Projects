@@ -1,121 +1,310 @@
-.home {
-  min-height: 100vh;
-  background-color: white;
+/* Reset and Base */
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0f6ff; /* light blue background */
+  color: #222;
+}
+
+/* Container */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 15px;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 15px;
 }
 
+/* Form */
 .todo-form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 300px;
-  padding: 10px;
-  background-color: #E1F0F7;
-  border-radius: 6px;
-  gap: 5px;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-input{
-  padding: 7px;
-  width: 98%;
+.todo-form input[type="text"],
+.todo-form textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #1DA1F2;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.todo-form input[type="text"]:focus,
+.todo-form textarea:focus {
+  border-color: #0d8ddb;
+  box-shadow: 0 0 0 3px rgba(29,161,242,0.2);
+}
+
+.todo-form textarea {
+  resize: none;
+  min-height: 40px;
+}
+
+.todo-form .btn-addTodo {
+  padding: 10px 18px;
+  background: #1DA1F2;
   border: none;
   border-radius: 6px;
-  outline: none;
-}
-input:focus{
-  box-shadow: 0 0 0 2px #2cb0ee;
-}
-.btn-addTodo{
-  padding: 6px;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  background-color: #1DA1F2;
-  cursor: pointer;
   color: white;
-  font-weight: 700;
-  font-size: 14px;
-  width: 70px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.todo {
-  width: 300px;
-  padding: 10px;
-  background-color: #E1F0F7;
+.todo-form .btn-addTodo:hover {
+  background: #0d8ddb;
+}
+
+.todo-form .btn-addTodo:active {
+  transform: scale(0.95);
+}
+
+/* Filter Buttons */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 6px 14px;
+  background: #fff;
+  border: 1px solid #1DA1F2;
   border-radius: 6px;
-  margin-top: 10px;
+  color: #1DA1F2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filters button:hover {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+.filters button.active {
+  background: #1DA1F2;
+  color: #fff;
+  box-shadow: 0 0 6px rgba(29,161,242,0.4);
+}
+
+/* Date input for custom filter */
+.filters input[type="date"] {
+  padding: 6px 10px;
+  border: 1px solid #1DA1F2;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.filters input[type="date"]:focus {
+  border-color: #0d8ddb;
+  box-shadow: 0 0 0 3px rgba(29,161,242,0.2);
+}
+
+/* Todo Card */
+.todo {
+  background: #fff;
+  border: 1px solid #d6e9ff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Completed Task */
+.todo.completed h3,
+.todo.completed .desc {
+  text-decoration: line-through;
+  color: #777;
+}
+
+/* Task Layout */
+.task-main {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
-.text {
-  font-size: 16px;
-  font-weight: 700;
-  margin-right: auto;
-  overflow: hidden;
-  overflow-wrap: break-word;
+/* Todo Title */
+.todo h3 {
+  font-size: 1.1rem;
+  color: #1DA1F2;
+  margin-bottom: 6px;
 }
 
-.utils{
+/* Task Description */
+.todo .desc {
+  font-size: 0.9rem;
+  color: #444;
+  background: #f7fbff;
+  border-left: 3px solid #1DA1F2;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Timestamp */
+.todo small {
+  display: block;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+/* Task Actions (right side buttons) */
+.task-actions {
   display: flex;
+  gap: 12px;
   align-items: center;
+  font-size: 1.2rem;
+}
+
+/* Tick (Complete) */
+.task-actions .tick {
+  color: green;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.task-actions .tick:hover {
+  transform: scale(1.2);
+}
+
+/* Edit button */
+.task-actions .edit {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #f39c12;
+  transition: transform 0.2s ease;
+}
+
+.task-actions .edit:hover {
+  transform: scale(1.2);
+}
+
+/* Remove button */
+.task-actions .remove {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e63946;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.task-actions .remove:hover {
+  transform: scale(1.2);
+}
+
+.task-actions .remove::before,
+.task-actions .remove::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  background: #e63946;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.task-actions .remove::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Edit Mode */
+.edit-mode {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-.go-up {
-  width: 0; 
-  height: 0; 
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid #1DA1F2;
-  cursor: pointer;
-}
-
-.go-down{
-  width: 0; 
-  height: 0; 
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #1DA1F2;
-  cursor: pointer;
-}
-
-.remove{
-  position: relative;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.remove::after {
-  position: absolute;
-  content:'';
+.edit-mode input,
+.edit-mode textarea {
   width: 100%;
-  height: 2px;
-  background-color: black;
-  top:0;
-  left:0;
-  border-radius: 999px;
-  transform: translateY(10px) rotate(-45deg);
+  padding: 8px 10px;
+  border: 1px solid #1DA1F2;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
 }
 
-.remove::before {
-  position: absolute;
-  content:'';
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  top:100%;
-  left:0;
-  border-radius: 999px;
-  transform: translateY(-10px) rotate(45deg);
+.edit-mode input:focus,
+.edit-mode textarea:focus {
+  border-color: #0d8ddb;
+  box-shadow: 0 0 0 3px rgba(29,161,242,0.2);
+}
+
+.edit-mode textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #1DA1F2;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.edit-actions button:hover {
+  background: #0d8ddb;
+}
+
+.edit-actions button:active {
+  transform: scale(0.96);
+}
+
+.edit-actions button:last-child {
+  background: #ccc;
+  color: #333;
+}
+
+.edit-actions button:last-child:hover {
+  background: #999;
+  color: #fff;
+}
+
+/* No tasks text */
+.no-tasks {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #555;
 }
