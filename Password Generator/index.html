@@ -1,30 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <title>Password Generator</title>
-  </head>
-  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+</head>
+<body>
     <div class="container">
-      <h2 id="headline1">Generate a</h2>
-      <h2 id="headline2">random password</h2>
-      <p id="line">Never use an insecure password</p>
-      <button id="btn">Generate Password</button>
-      <hr />
-      <div class="password-container">
-        <button id="PassContainer">
-          <p class="Password1"></p>
-        <button id="PassContainer">
-          <p class="Password2"></p>
-      </div>
-      <label class="switch" for="modeChanger">
-        <input type="checkbox" id="modeChanger">
-        <span class="slider round"></span>
-      </label>
-      
+        <h2 id="headline1">Generate a</h2>
+        <h2 id="headline2">random password</h2>
+        <p id="line">Never use an insecure password</p>
+
+        <div class="password-display-container">
+            <input type="text" id="passwordOutput" readonly placeholder="Click 'Generate' to start" />
+            <button id="copyBtn" title="Copy to clipboard">📋</button>
+        </div>
+        
+        <div class="action-buttons">
+            <button id="generatePasswordBtn" class="main-btn">Generate Password</button>
+            <button id="generatePassphraseBtn" class="main-btn secondary-btn">Generate Passphrase</button>
+        </div>
+        
+        <hr />
+
+        <div class="settings-container">
+            <div class="setting">
+                <label for="lengthSlider">Password Length:</label>
+                <span id="lengthValue">16</span>
+                <input type="range" id="lengthSlider" min="8" max="64" value="16" />
+            </div>
+            <div class="setting checkboxes">
+                <label><input type="checkbox" id="includeUppercase" checked /> Uppercase (A-Z)</label>
+                <label><input type="checkbox" id="includeLowercase" checked /> Lowercase (a-z)</label>
+                <label><input type="checkbox" id="includeNumbers" checked /> Numbers (0-9)</label>
+                <label><input type="checkbox" id="includeSymbols" checked /> Symbols (!@#$)</label>
+            </div>
+        </div>
+
+        <div class="security-feedback">
+            <div class="strength-meter">
+                <div id="strengthBar"></div>
+            </div>
+            <p id="strengthText"></p>
+            <p id="crackTimeText"></p>
+            <p id="securityNote">Passwords are generated in your browser and are never saved.</p>
+        </div>
+
     </div>
-  </body>
-  <script src="index.js"></script>
+
+    <script src="index.js"></script>
+</body>
 </html>

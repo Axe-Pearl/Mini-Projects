@@ -1,136 +1,113 @@
-body{
+body {
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #1F2937;
+    color: #D5D4D8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 5vh;
+    min-height: 100vh;
 }
 
-.container{
-    margin-left: 20%;
-    margin-right: 10%;
+.container {
+    width: 90%;
+    max-width: 550px;
+    background-color: #1F2937;
+    padding: 20px;
 }
 
-#headline {
-    color:#10B981;
-}
-
-#btn {
-    background-color: #10B981;
-    padding:.7em;
-    color: white;
-    font-size: medium;
-    font-weight: 500;
-    border: none;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    cursor: pointer;
-    border-radius:.5rem;
-}
-
-hr{
-    color: #273549;
-    position: absolute;
-    
-    width: 30rem;
-}
-
-#PassContainer{
-    border: 2px solid;
-    margin-top: 1.5em;
-    margin-right: 2em;
-    padding-bottom: 2.5rem;
-    width: 17em;
-    height: 3em;
-    line-height: normal;
-    display: block;
-    border-radius: .5rem;
-    background-color: #273549;
-    color:#000000;
-}
-.Password1{
-    color:#55F991;
-}
-.Password2{
-    color:#55F991;
-}
-
-#headline1{
-    margin-top: 2em;
+#headline1 {
+    margin-top: 0;
     color: aliceblue;
     font-weight: 800;
     margin-bottom: 0;
     font-size: 2.5rem;
 }
 
-#headline2{
-    margin-top: 0em;
+#headline2 {
+    margin-top: 0;
     margin-bottom: 0;
-    font-size: 2.5em;
-    color:#55F991;
-
-}
-#line{
-    color: #D5D4D8;
+    font-size: 2.5rem;
+    color: #55F991;
 }
 
-.password-container{
-    display: flex;
-    
-}
+#line { color: #D5D4D8; }
 
-.switch{
-    margin-top: 1em;
-    margin-left:.5em;
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #273549;
-    -webkit-transition:.4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider{
+.main-btn {
     background-color: #10B981;
+    padding: .8em 1.2em;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+    border-radius: .5rem;
+    transition: background-color 0.2s;
+}
+.main-btn:hover { background-color: #0c9f6d; }
+.secondary-btn { background-color: #4A5567; }
+.secondary-btn:hover { background-color: #394251; }
+.action-buttons { display: flex; gap: 15px; }
+
+hr {
+    border: none;
+    border-top: 1px solid #273549;
+    margin: 2em 0;
 }
 
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+/* Password Display & Copy */
+.password-display-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.5em;
 }
-
-.slider.round {
-    border-radius: 34px;
+#passwordOutput {
+    flex-grow: 1;
+    background-color: #273549;
+    color: #55F991;
+    border: none;
+    border-radius: .5rem;
+    padding: .8em;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
 }
-
-.slider.round:before{
-    border-radius: 50%;
+#copyBtn {
+    background-color: #4A5567;
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    padding: .8em;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
+#copyBtn:active { transform: scale(0.95); }
+
+/* Settings */
+.settings-container { display: flex; flex-direction: column; gap: 1.5em; }
+.setting { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; }
+.setting label { user-select: none; }
+#lengthSlider { flex-grow: 1; }
+.checkboxes { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+/* Security Feedback */
+.security-feedback { margin-top: 2em; }
+.strength-meter {
+    height: 10px;
+    width: 100%;
+    background-color: #273549;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#strengthBar {
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+#strengthText { font-weight: bold; margin-top: 10px; }
+#crackTimeText { font-size: 0.9em; color: #a0aec0; }
+#securityNote { font-size: 0.8em; color: #6B7280; text-align: center; margin-top: 2em; }
