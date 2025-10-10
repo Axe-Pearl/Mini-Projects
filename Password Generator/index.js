@@ -12,8 +12,8 @@ mode.addEventListener("change", () => {
     line.style.color = "#6B7280"
     hr.style.color = "#E8E7E9"
     headline2.style.color = "#10B981"
-    
-    
+
+
   } else {
     headline2.style.color = "#55F991"
     headline.style.color = "aliceblue";
@@ -39,11 +39,28 @@ const generatePassword = (length) => {
   return password;
 };
 
+let dPassword1 = document.querySelector(".Password1");
+let dPassword2 = document.querySelector(".Password2");
+let copyBtn1 = document.querySelector('#copy-btn1');
+let copyBtn2 = document.querySelector('#copy-btn2');
+
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied");
+  })
+}
+
+
+
+
 const displayPassword = () => {
-  let dPassword1 = document.querySelector(".Password1");
   dPassword1.textContent = generatePassword(13);
-  let dPassword2 = document.querySelector(".Password2");
   dPassword2.textContent = generatePassword(12);
+  copyBtn1.style.display = "flex";
+  copyBtn2.style.display = "flex";
+  copyBtn1.addEventListener("click", () => copyText(dPassword1.innerText));
+  copyBtn2.addEventListener("click", () => copyText(dPassword2.innerText));
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
