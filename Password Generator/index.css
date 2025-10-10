@@ -41,7 +41,9 @@ hr{
     width: 17em;
     height: 3em;
     line-height: normal;
-    display: block;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap:5px;
     border-radius: .5rem;
     background-color: #273549;
     color:#000000;
@@ -52,6 +54,19 @@ hr{
 .Password2{
     color:#55F991;
 }
+#copy-btn1{
+    display: none;
+    align-items: center;
+    padding: 2px 5px 5px 5px;
+    font-size: 25px;
+}
+#copy-btn2{
+    display: none;
+    align-items: center;
+    padding: 2px 5px 5px 5px;
+    font-size: 25px;
+}
+
 
 #headline1{
     margin-top: 2em;
