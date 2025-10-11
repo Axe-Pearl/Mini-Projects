@@ -2,66 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description"
-        content="
-    A temperature converter helps in the conversion of the measurement units of the temperature recorded in a particular unit. Temperature expresses the degree of heat or cold of a solid, liquid, or gas. Temperature is measured using a thermometer.">
+  <title>🌡️ Temperature Converter</title>
 
-    <meta name="keywords" content="temperature converter, convert celsius to fahrenheit, convert fahrenheit to celsius">
+  <meta name="description"
+    content="A simple temperature converter that lets you easily convert between Celsius and Fahrenheit with real-time validation and a clean modern design." />
+  <meta name="keywords"
+    content="temperature converter, convert celsius to fahrenheit, convert fahrenheit to celsius, temperature calculator" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./Img/favicon.ico" type="image/x-icon">
+  <!-- Favicon -->
+  <link rel="icon" href="./Img/favicon.ico" type="image/x-icon" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;500;700&display=swap" rel="stylesheet" />
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="./CSS/style.css">
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+    crossorigin="anonymous"
+  />
 
-    <title>Temperature Converter</title>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./CSS/style.css" />
 </head>
 
 <body>
+  <!-- ===== Main Container ===== -->
+  <main class="container text-center">
+    <header class="mb-4">
+      <h1 class="display-5 fw-bold">
+        <span id="fa" class="fa" aria-hidden="true"></span>
+        Temperature Converter
+      </h1>
+      <p class="text-muted">Convert temperatures between Celsius and Fahrenheit instantly.</p>
+    </header>
 
-    <h1 class="text-center"> <span id="fa" class="fa"></span> Temperature Converter</h1>
+    <!-- ===== Converter Form ===== -->
+    <form id="tempCalc" onsubmit="calculateTemp(); return false;" class="mx-auto shadow-sm rounded p-4">
+      <div class="form-group">
+        <label for="temp" class="font-weight-medium mb-2">
+          Please enter the temperature you’d like to convert:
+        </label>
+        <input
+          type="number"
+          step="any"
+          id="temp"
+          class="form-control text-center"
+          placeholder="Enter temperature value"
+          required
+          aria-required="true"
+        />
+      </div>
 
-    <form class="text-center" id="tempCalc" onsubmit="calculateTemp(); return false">
-        <label for="temp">Please Enter the Temperature you'd like to convert.</label>
-        <div class="row my-3">
-            <div class="col">
-                <input type="number" step="any" id="temp" class="form-control">
-            </div>
-            <div class="col">
-                <select name="temp_diff" class="form-control" id="temp_diff">
-                    <option value="cel"><span>&#176;</span>Celsius</option>
-                    <option value="fah"><span>&#176;</span>Fahrenheit</option>
-                </select>
-            </div>
-        </div>
+      <div class="form-group">
+        <label for="temp_diff" class="font-weight-medium mb-2">Select Conversion Type:</label>
+        <select name="temp_diff" id="temp_diff" class="form-control text-center">
+          <option value="cel">° Celsius ➜ Fahrenheit</option>
+          <option value="fah">° Fahrenheit ➜ Celsius</option>
+        </select>
+      </div>
 
-        <!-- <input type="submit" class="d-flex justify-content-center mx-auto" name="temp"> -->
-        <button type="submit" class="btn btn-danger d-flex justify-content-center mx-auto my-2">Submit</button>
-        <br />
-        <span id="resultContainer"></span>
+      <button type="submit" class="btn btn-dark mt-3 px-4 py-2">
+        Convert
+      </button>
+
+      <!-- Result -->
+      <div id="resultContainer" class="mt-4 font-weight-bold text-dark"></div>
     </form>
+  </main>
 
-    <!-- Script JS -->
-    <script src="./Js/script.js"></script>
+  <!-- ===== Scripts ===== -->
+  <script src="./Js/script.js"></script>
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/c387a6ff36.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/c387a6ff36.js" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"
+  ></script>
 </body>
 
 </html>

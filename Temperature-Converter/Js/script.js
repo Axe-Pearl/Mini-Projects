@@ -1,69 +1,53 @@
 console.log('Welcome to 🌡️ Temperature Converter');
 
+// Animate temperature icon
 const tempLoad = () => {
-    let fa = document.getElementById('fa');
-    fa.innerHTML = "&#xf2cb";
+    const fa = document.getElementById('fa');
+    fa.innerHTML = "&#xf2cb;";
     fa.style.color = "#ffa41b";
 
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2ca;";
-        fa.style.color = "#ffa41b";
-    }, 1000)
-
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2c9;";
-    }, 2000)
-
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2c8;";
-    }, 3000)
-
+    setTimeout(() => { fa.innerHTML = "&#xf2ca;"; }, 1000);
+    setTimeout(() => { fa.innerHTML = "&#xf2c9;"; }, 2000);
+    setTimeout(() => { fa.innerHTML = "&#xf2c8;"; }, 3000);
     setTimeout(() => {
         fa.innerHTML = "&#xf2c7;";
         fa.style.color = "#ff5151";
-    }, 4000)
-}
+    }, 4000);
+};
 
+// Repeat animation
 setInterval(() => {
+    const fa = document.getElementById('fa');
     fa.style.color = "#ffa41b";
     tempLoad();
 }, 5000);
 
-
 tempLoad();
 
+// Temperature conversion logic
 const calculateTemp = () => {
-    const numberTemp = document.getElementById('temp').value;
-    // console.log(numberTemp);
+    const numberTemp = document.getElementById('temp').value.trim();
+    const tempSelect = document.querySelector('#temp_diff');
+    const valueTemp = tempSelect.options[tempSelect.selectedIndex].value;
+    const resultDiv = document.getElementById('resultContainer');
 
-    const tempSelected = document.querySelector('#temp_diff');
-    const valeTemp = temp_diff.options[tempSelected.selectedIndex].value;
-    // console.log(valeTemp);
-
-
-    // Convert temperature from Celcius to Fahrenheit
-    const celTOfah = (cel) => {
-        let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
+    if (numberTemp === "" || isNaN(numberTemp)) {
+        resultDiv.innerHTML = "⚠️ Please enter a valid number!";
+        return;
     }
 
-    // Convert temperature from Fahrenheit to Celsius
-    const fahTOcel = (fehr) => {
-        let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
-    }
+    const celToFah = (cel) => (cel * 9/5 + 32).toFixed(2);
+    const fahToCel = (fah) => ((fah - 32) * 5/9).toFixed(2);
 
     let result;
-    if (valeTemp == "cel") {
-        result = celTOfah(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
+    if (valueTemp === "cel") {
+        result = celToFah(numberTemp);
+        resultDiv.innerHTML = `= ${result}° Fahrenheit`;
     } else {
-        result = fahTOcel(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
+        result = fahToCel(numberTemp);
+        resultDiv.innerHTML = `= ${result}° Celsius`;
     }
 
-    setTimeout(() => {
-        window.location.reload();
-    }, 1500);
-}
-
+    // Optional input reset
+    document.getElementById('temp').value = "";
+};
