@@ -35,3 +35,9 @@
     opacity: 0.8; 
     
 }
+#digitalClock {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        } 
