@@ -1,64 +1,111 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+/* === General Body Styling === */
+body {
+  background: url("c10.jpg") no-repeat center center/cover;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: white;
 }
 
+/* === Calculator Container === */
+#outside {
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  padding: 30px;
+  width: 400px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+/* === Heading === */
+#heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* === Display === */
+#val,
+#res {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 15px;
+  text-align: right;
+  color: #fff4a7;
+  font-weight: bold;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+#val {
+  font-size: 1.2rem;
+  min-height: 40px;
+}
+
+#res {
+  font-size: 1.6rem;
+  min-height: 50px;
+}
+
+/* === Buttons Section === */
+#buttons {
+  margin-top: 20px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+/* === Buttons === */
+button {
+  flex: 1;
+  max-width: 70px;
+  height: 50px;
+  background: linear-gradient(145deg, #0072ff, #0052cc);
+  color: #fff4a7;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: linear-gradient(145deg, #0052cc, #003d99);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* === Responsive Design === */
+@media (max-width: 500px) {
+  #outside {
+    width: 90%;
+    padding: 20px;
+  }
+
+  button {
+    max-width: 60px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  #val,
+  #res {
+    width: 95%;
+  }
+}
