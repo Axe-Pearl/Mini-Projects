@@ -1,69 +1,94 @@
-console.log('Welcome to 🌡️ Temperature Converter');
-
-const tempLoad = () => {
-    let fa = document.getElementById('fa');
-    fa.innerHTML = "&#xf2cb";
-    fa.style.color = "#ffa41b";
-
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2ca;";
-        fa.style.color = "#ffa41b";
-    }, 1000)
-
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2c9;";
-    }, 2000)
-
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2c8;";
-    }, 3000)
-
-    setTimeout(() => {
-        fa.innerHTML = "&#xf2c7;";
-        fa.style.color = "#ff5151";
-    }, 4000)
-}
-
-setInterval(() => {
-    fa.style.color = "#ffa41b";
-    tempLoad();
-}, 5000);
-
-
-tempLoad();
-
-const calculateTemp = () => {
-    const numberTemp = document.getElementById('temp').value;
-    // console.log(numberTemp);
-
-    const tempSelected = document.querySelector('#temp_diff');
-    const valeTemp = temp_diff.options[tempSelected.selectedIndex].value;
-    // console.log(valeTemp);
-
-
-    // Convert temperature from Celcius to Fahrenheit
-    const celTOfah = (cel) => {
-        let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
+function convertTemp(saveHistory = false) {
+    const input = parseFloat(document.getElementById('inputValue').value);
+    const from = document.getElementById('fromUnit').value;
+    const to = document.getElementById('toUnit').value;
+    const resultField = document.getElementById('result');
+  
+    if (isNaN(input)) {
+      resultField.textContent = "Please enter a valid number.";
+      return;
     }
-
-    // Convert temperature from Fahrenheit to Celsius
-    const fahTOcel = (fehr) => {
-        let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
+  
+    // Convert everything via Kelvin
+    const toKelvin = {
+      C: (v) => v + 273.15,
+      F: (v) => (v - 32) * 5/9 + 273.15,
+      K: (v) => v,
+      R: (v) => v * 5/9
+    };
+  
+    const fromKelvin = {
+      C: (v) => v - 273.15,
+      F: (v) => (v - 273.15) * 9/5 + 32,
+      K: (v) => v,
+      R: (v) => v * 9/5
+    };
+  
+    const kelvinValue = toKelvin[from](input);
+    const finalValue = fromKelvin[to](kelvinValue);
+  
+    resultField.textContent = `${input}°${from} = ${finalValue.toFixed(2)}°${to}`;
+  
+    // Save to history only when button pressed
+    if (saveHistory) {
+      saveToHistory(input, from, to, finalValue);
     }
-
-    let result;
-    if (valeTemp == "cel") {
-        result = celTOfah(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
-    } else {
-        result = fahTOcel(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
+  }
+  
+  // Real-time preview only (no save)
+  document.getElementById('inputValue').addEventListener('input', () => convertTemp(false));
+  document.getElementById('fromUnit').addEventListener('change', () => convertTemp(false));
+  document.getElementById('toUnit').addEventListener('change', () => convertTemp(false));
+  
+  // Convert button explicitly saves history
+  document.querySelector('button[onclick="convertTemp()"]').onclick = () => convertTemp(true);
+  
+  // Swap button
+  document.getElementById('swapBtn').addEventListener('click', () => {
+    const fromSelect = document.getElementById('fromUnit');
+    const toSelect = document.getElementById('toUnit');
+    const temp = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value = temp;
+    convertTemp(false);
+  });
+  
+  // History
+  function saveToHistory(input, from, to, output) {
+    const record = {
+      input: `${input}°${from}`,
+      output: `${output.toFixed(2)}°${to}`,
+      time: new Date().toLocaleString()
+    };
+  
+    const history = JSON.parse(localStorage.getItem('tempHistory')) || [];
+    history.unshift(record);
+    localStorage.setItem('tempHistory', JSON.stringify(history));
+    renderHistory();
+  }
+  
+  function renderHistory() {
+    const historyList = document.getElementById('historyList');
+    const history = JSON.parse(localStorage.getItem('tempHistory')) || [];
+    historyList.innerHTML = '';
+  
+    if (history.length === 0) {
+      historyList.innerHTML = '<li>No history yet</li>';
+      return;
     }
-
-    setTimeout(() => {
-        window.location.reload();
-    }, 1500);
-}
-
+  
+    history.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.time}: ${item.input} → ${item.output}`;
+      historyList.appendChild(li);
+    });
+  }
+  
+  function clearHistory() {
+    localStorage.removeItem('tempHistory');
+    renderHistory();
+  }
+  
+  document.getElementById('clearBtn').addEventListener('click', clearHistory);
+  window.onload = renderHistory;
+  
