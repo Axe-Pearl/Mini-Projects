@@ -11,40 +11,36 @@
 
 <body>
     <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
-        <div>
-            <div>
-                <h1 id="val"> </h1>
+        <div class="calculator-shell">
+            <div class="display">
+                <div id="val"></div>
+                <div id="res">0</div>
             </div>
-            <div>
-                <p id="res"></p>
-            </div>
-            <div id="btn">
-                <div class="btn-inside">
-                    <button onclick="adder('1')">1</button>
-                    <button onclick="adder('2')">2</button>
-                    <button onclick="adder('3')">3</button>
-                    <button onclick="adder('*')">*</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('4')">4</button>
-                    <button onclick="adder('5')">5</button>
-                    <button onclick="adder('6')">6</button>
-                    <button onclick="adder('+')">+</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('7')">7</button>
-                    <button onclick="adder('8')">8</button>
-                    <button onclick="adder('9')">9</button>
-                    <button onclick="adder('-')">-</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
-                    <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
-                    <button onclick="adder('/')">/</button>
-                </div>
-                <button onclick="adder('.')">.</button>
+            <div class="button-grid">
+                <button class="btn btn-blue" onclick="clearer()">C</button>
+                <button class="btn btn-slate" onclick="backspace()">←</button>
+                <button class="btn btn-yellow" onclick="adder('/')">÷</button>
+                <button class="btn btn-yellow" onclick="adder('*')">×</button>
+
+                <button class="btn btn-blue" onclick="adder('7')">7</button>
+                <button class="btn btn-green" onclick="adder('8')">8</button>
+                <button class="btn btn-red" onclick="adder('9')">9</button>
+                <button class="btn btn-yellow" onclick="adder('-')">-</button>
+
+                <button class="btn btn-blue" onclick="adder('4')">4</button>
+                <button class="btn btn-green" onclick="adder('5')">5</button>
+                <button class="btn btn-red" onclick="adder('6')">6</button>
+                <button class="btn btn-yellow" onclick="adder('+')">+</button>
+
+                <button class="btn btn-blue" onclick="adder('1')">1</button>
+                <button class="btn btn-green" onclick="adder('2')">2</button>
+                <button class="btn btn-red" onclick="adder('3')">3</button>
+                <button class="btn btn-yellow" onclick="compute(1)">=</button>
+
+                <button class="btn btn-blue" onclick="adder('0')">0</button>
+                <button class="btn btn-green" onclick="adder('.')">.</button>
+                <button class="btn btn-slate" onclick="adder('00')">00</button>
+                <button class="btn btn-slate placeholder" disabled aria-hidden="true"></button>
             </div>
         </div>
     </div>
