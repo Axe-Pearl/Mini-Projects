@@ -1,64 +1,87 @@
 body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
+    background-color: rgb(211, 211, 211);
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    align-items: center; /* centra verticalmente */
+    margin-top: 50px;
+
 }
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
+.container{
+    width: 20vw;
+    height: 60vh;
+    background-color: rgb(245, 245, 245);
     border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
+    display: flex;
+    flex-direction: column; /* apila los elementos verticalmente */
+    gap: 10px; /* espacio entre pantalla y filas */
 }
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+.screen {
+  background-color: black;
+  color: white;
+  height: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pone el resultado abajo */
+  align-items: flex-end; /* Alinea el texto a la derecha */
+  font-size: 1.5em;
+  margin-bottom: 50px;
 }
 
+#operation {
+  opacity: 0.7; /* Más tenue para diferenciar */
+  font-size: 1em;
+}
+
+#result {
+  font-size: 1.4em;
+}
+
+.button{
+    display: flex; /* hace que los botones estén en fila */
+    justify-content: space-between; /* distribuye los botones */
+    gap: 5px;
+    
+}
+
+button {
+  flex: 1; /* cada botón ocupa el mismo espacio */
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+}
+.cero{
+    flex: 3.6;
+}
+
+button:hover {
+  background-color: #888;
+}
+
+.Clear{
+    background-color: rgba(243, 75, 75, 0.911);
+}
+.Clear:hover{
+    background-color: rgba(241, 128, 128, 0.911);
+}
+
+.equal{
+    background-color: rgba(243, 75, 75, 0.911);
+}
+.equal:hover{
+    background-color: rgba(241, 128, 128, 0.911);
+}
+
+footer{
+    color: darkgray;
+    margin-top: auto;
+}
+
+p{
+    color: white;
+}
