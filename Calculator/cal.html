@@ -3,6 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cal.css">
@@ -10,42 +15,34 @@
 </head>
 
 <body>
-    <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
-        <div>
-            <div>
-                <h1 id="val"> </h1>
-            </div>
-            <div>
-                <p id="res"></p>
-            </div>
-            <div id="btn">
-                <div class="btn-inside">
-                    <button onclick="adder('1')">1</button>
-                    <button onclick="adder('2')">2</button>
-                    <button onclick="adder('3')">3</button>
-                    <button onclick="adder('*')">*</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('4')">4</button>
-                    <button onclick="adder('5')">5</button>
-                    <button onclick="adder('6')">6</button>
-                    <button onclick="adder('+')">+</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('7')">7</button>
-                    <button onclick="adder('8')">8</button>
-                    <button onclick="adder('9')">9</button>
-                    <button onclick="adder('-')">-</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
-                    <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
-                    <button onclick="adder('/')">/</button>
-                </div>
-                <button onclick="adder('.')">.</button>
-            </div>
+    <div class="calculator">
+        <div class="screen">
+            <div id="val" class="operation-display"></div>
+            <div id="res" class="result-display">0</div>
+        </div>
+        <div class="buttons-grid">
+            <button class="btn btn-clear" onclick="clearer()">AC</button>
+            <button class="btn btn-operator" onclick="adder('/')">÷</button>
+            <button class="btn btn-operator" onclick="adder('*')">×</button>
+            <button class="btn btn-delete" onclick="backspace()">⌫</button>
+
+            <button class="btn btn-number" onclick="adder('7')">7</button>
+            <button class="btn btn-number" onclick="adder('8')">8</button>
+            <button class="btn btn-number" onclick="adder('9')">9</button>
+            <button class="btn btn-operator" onclick="adder('-')">-</button>
+
+            <button class="btn btn-number" onclick="adder('4')">4</button>
+            <button class="btn btn-number" onclick="adder('5')">5</button>
+            <button class="btn btn-number" onclick="adder('6')">6</button>
+            <button class="btn btn-operator" onclick="adder('+')">+</button>
+
+            <button class="btn btn-number" onclick="adder('1')">1</button>
+            <button class="btn btn-number" onclick="adder('2')">2</button>
+            <button class="btn btn-number" onclick="adder('3')">3</button>
+            <button class="btn btn-equal" onclick="compute(1)">=</button>
+
+            <button class="btn btn-number btn-zero" onclick="adder('0')">0</button>
+            <button class="btn btn-number" onclick="adder('.')">.</button>
         </div>
     </div>
     <script src="cal.js"></script>

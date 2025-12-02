@@ -1,42 +1,42 @@
 let valEl = document.getElementById("val")
 let resEl = document.getElementById("res")
+
+let calculation = ""; // Internal string for eval
+
+function updateDisplay() {
+    // Replace * with ×, / with ÷ for display
+    let displayString = calculation.replace(/\*/g, '×').replace(/\//g, '÷');
+    valEl.innerText = displayString;
+}
+
 function clearer(){
-    valEl.innerText = ""
-    resEl.innerText = ""
+    calculation = "";
+    valEl.innerText = "";
+    resEl.innerText = "0";
 }
+
+function backspace() {
+    calculation = calculation.slice(0, -1);
+    updateDisplay();
+}
+
 function adder(k){
-    valEl.innerText += k
-    if(k=='*' || k=='+' || k=='-' || k=='/'){
-        compute(0)
-    }
+    calculation += k;
+    updateDisplay();
 }
-function compute(is){
-    let temp = valEl.innerText, i
-    let t = temp[temp.length-1];
-    for(i=0;i<temp.length-1;i++){
-        if((temp[i]=='*' || temp[i]=='+' || temp[i]=='-' || temp[i]=='/') && i!=0){
-            break;
+
+function compute(isFinal){
+    if(!calculation) return;
+    try {
+        let result = eval(calculation);
+        resEl.innerText = result;
+        if(isFinal) {
+            // Optional: reset calculation to result?
+            // calculation = result.toString();
+            // updateDisplay();
+            // But usually we want to see the history until we type again.
         }
-    }
-    if(i!=temp.length-1){
-        let part1 = parseFloat(temp.substring(0,i));
-        let part2 = parseFloat(temp.substring(i+1));
-        let k5 = temp[i];
-        if(k5=='+'){
-            resEl.innerText = (part1)+(part2);
-        }else if(k5=='-'){
-            resEl.innerText = (part1)-(part2);
-        }else if(k5=='*'){
-            resEl.innerText = (part1)*(part2);
-        }else{
-            resEl.innerText = (part1)/(part2);
-        }
-        resEl.innerText = '= ' + resEl.innerText
-        if(!is){
-            valEl.innerText = resEl.innerText + t
-            if(valEl.innerText[0] == '='){
-                valEl.innerText = valEl.innerText.substring(1)
-            }
-        } 
+    } catch (e) {
+        resEl.innerText = "Error";
     }
 }

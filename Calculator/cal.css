@@ -1,64 +1,121 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e0e3eb; /* Light grey background */
+    /* Optional: Keep the background image if desired, but a clean look is better for "realistic" usually. 
+       Let's use a subtle gradient or the original image if it was good, but I'll stick to a clean modern background. */
+    background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
+    padding: 20px;
+    width: 350px;
 }
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
+
+.screen {
+    background: #000;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
 }
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
+
+.operation-display {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    min-height: 24px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
+
+.result-display {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    word-break: break-all;
 }
-.btn-inside{
-    width: 900px;
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
+
+.btn {
+    border: none;
+    outline: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%; /* Rounded buttons */
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+    background: #333;
+    color: #fff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+                -2px -2px 5px rgba(255, 255, 255, 0.1);
 }
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.1);
 }
+
+/* Number buttons */
+.btn-number {
+    background: #333;
+}
+
+/* Operator buttons */
+.btn-operator {
+    background: #ff9f0a; /* Orange like iOS */
+    color: #fff;
+}
+
+/* Clear/Delete buttons */
+.btn-clear, .btn-delete {
+    background: #a5a5a5; /* Light grey like iOS */
+    color: #000;
+}
+
+/* Equal button */
+.btn-equal {
+    background: #34c759; /* Green */
+    color: #fff;
+    grid-column: span 1; /* Keep it single for now to match grid */
+}
+
+.btn-zero {
+    grid-column: span 2;
+    width: 100%;
+    border-radius: 30px; /* Pill shape for zero */
+    text-align: left;
+    padding-left: 25px;
+}
+
 
