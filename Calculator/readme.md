@@ -86,9 +86,7 @@ It supports basic arithmetic operations with a clean UI and real-time result pre
 
 Contributions are welcome!
 Feel free to improve UI, optimize logic, or add new features.
-
 ---
-
 ## 📄 License
 
 This project is part of the Mini-Projects repository and is open for educational use.
