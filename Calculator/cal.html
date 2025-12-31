@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cal.css">
-    <title>Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="cal.css" />
 </head>
-
 <body>
-    <div id="outside">
-        <h1 id="heading">🖩CALCULATOR🖩</h1>
-        <div>
-            <div>
-                <h1 id="val"> </h1>
-            </div>
-            <div>
-                <p id="res"></p>
-            </div>
-            <div id="btn">
-                <div class="btn-inside">
-                    <button onclick="adder('1')">1</button>
-                    <button onclick="adder('2')">2</button>
-                    <button onclick="adder('3')">3</button>
-                    <button onclick="adder('*')">*</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('4')">4</button>
-                    <button onclick="adder('5')">5</button>
-                    <button onclick="adder('6')">6</button>
-                    <button onclick="adder('+')">+</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="adder('7')">7</button>
-                    <button onclick="adder('8')">8</button>
-                    <button onclick="adder('9')">9</button>
-                    <button onclick="adder('-')">-</button>
-                </div>
-                <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
-                    <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
-                    <button onclick="adder('/')">/</button>
-                </div>
-                <button onclick="adder('.')">.</button>
-            </div>
-        </div>
-    </div>
-    <script src="cal.js"></script>
-</body>
 
+<div class="calculator">
+  <div class="title">🧮 Scientific Calculator</div>
+
+  <div class="display">
+    <div id="expression"></div>
+    <div id="result">0</div>
+  </div>
+
+  <div class="grid">
+    <button class="danger" onclick="clearAll()">AC</button>
+    <button onclick="del()">DEL</button>
+    <button onclick="add('(')">(</button>
+    <button onclick="add(')')">)</button>
+    <button class="op" onclick="add('/')">÷</button>
+
+    <button onclick="add('sin(')">sin</button>
+    <button onclick="add('cos(')">cos</button>
+    <button onclick="add('tan(')">tan</button>
+    <button onclick="add('Math.PI')">π</button>
+    <button class="op" onclick="add('*')">×</button>
+
+    <button onclick="add('log(')">log</button>
+    <button onclick="add('ln(')">ln</button>
+    <button onclick="add('Math.sqrt(')">√</button>
+    <button onclick="add('**')">xʸ</button>
+    <button class="op" onclick="add('-')">−</button>
+
+    <button onclick="add('7')">7</button>
+    <button onclick="add('8')">8</button>
+    <button onclick="add('9')">9</button>
+    <button onclick="add('%')">%</button>
+    <button class="op" onclick="add('+')">+</button>
+
+    <button onclick="add('4')">4</button>
+    <button onclick="add('5')">5</button>
+    <button onclick="add('6')">6</button>
+    <button onclick="add('.')">.</button>
+    <button class="equal wide" onclick="calculate()">=</button>
+
+    <button onclick="add('1')">1</button>
+    <button onclick="add('2')">2</button>
+    <button onclick="add('3')">3</button>
+    <button onclick="add('0')" class="wide">0</button>
+  </div>
+
+  <footer>HTML • CSS • JavaScript</footer>
+</div>
+
+<script src="cal.js"></script>
+</body>
 </html>
