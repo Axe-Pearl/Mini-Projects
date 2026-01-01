@@ -26,6 +26,26 @@ body{
     border-radius:.5rem;
 }
 
+#length-input label {
+    font-size: large;
+    font-weight: 500;
+    color: #55F991;
+    margin-right: 1rem;
+}
+
+#length-input input {
+    color: white;
+    background-color: #273549;
+    border: 2px solid black;
+    padding: .5rem;
+    min-width: 5rem;
+    border-radius: .5rem;
+}
+
+#length-input input:focus {
+    outline: none;
+}
+
 hr{
     color: #273549;
     position: absolute;
