@@ -4,6 +4,7 @@ let body = document.querySelector("body");
 let line = document.querySelector("#line");
 let hr = document.querySelector("hr");
 let headline2 = document.querySelector("#headline2");
+let len = document.querySelector("#length");
 
 mode.addEventListener("change", () => {
   if (mode.checked) {
@@ -41,9 +42,9 @@ const generatePassword = (length) => {
 
 const displayPassword = () => {
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
+  dPassword1.textContent = generatePassword(len.value);
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+  dPassword2.textContent = generatePassword(len.value);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
