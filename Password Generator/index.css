@@ -26,6 +26,35 @@ body{
     border-radius:.5rem;
 }
 
+#length {
+    width: 50px;
+    padding: .7em;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: .5rem;
+    outline: none;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+#length:focus {
+    border-color: #10B981;
+    box-shadow: 0 0 0 10px rgba(48, 226, 137, 0.2);
+}
+
+/* Use to not show the arrow*/
+#length::-webkit-inner-spin-button,
+#length::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* use to hid arrow in firefox*/
+#length {
+    -moz-appearance: textfield;
+}
+
+
 hr{
     color: #273549;
     position: absolute;
