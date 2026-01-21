@@ -2,7 +2,7 @@
 
 ## How to contribute ?
 
-You can contibute to this repository by following these steps:
+You can contribute to this repository by following these steps:
 
 - Firstly, you open an issue with the changes you want to make
 - Wait until you get assigned to make these changes
