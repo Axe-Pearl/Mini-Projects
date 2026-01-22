@@ -1,0 +1,63 @@
+/* Center everything on the screen */
+body {
+    background: radial-gradient(circle, #2b2b2b, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* The Clock Face - Glass Effect */
+.clock {
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.05); /* See-through white */
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    backdrop-filter: blur(10px); /* Blurs the background behind it */
+}
+
+/* Shared styles for all hands */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom; /* Rotates from the bottom of the div */
+    transform: translateX(-50%) rotate(0deg); /* Start at 12 o'clock */
+    border-radius: 5px;
+    transition: transform 0.05s cubic-bezier(0.4, 2.3, 0.3, 1); /* Ticking bounce effect */
+}
+
+/* Specific styles for each hand */
+.hour {
+    width: 8px;
+    height: 80px;
+    background: #fff;
+}
+
+.min {
+    width: 5px;
+    height: 120px;
+    background: #aaa;
+}
+
+.sec {
+    width: 2px;
+    height: 140px;
+    background: #ff4757; /* Red second hand */
+}
+
+/* The dot in the middle */
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #ff4757;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
