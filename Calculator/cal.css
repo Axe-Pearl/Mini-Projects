@@ -1,64 +1,118 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Center page */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+}
+
+/* Calculator container */
+#outside {
+    background: #1f1f2e;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    width: 320px;
+}
+
+/* Heading */
+#heading {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* Display area */
+#val, #res {
+    background: #2e2e42;
+    color: #00ffcc;
+    min-height: 40px;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-align: right;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+/* Buttons container */
+#btn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Row of buttons */
+.btn-inside {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* All buttons */
+button {
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #3b3b5c;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect */
+button:hover {
+    background: #5757a1;
+    transform: scale(1.05);
+}
+
+/* Special buttons */
+button:nth-child(4n) {
+    background: #ff6b6b;
+}
+
+button:nth-child(4n):hover {
+    background: #ff4c4c;
+}
+
+/* Clear button */
+button[onclick="clearer()"] {
+    background: #ffa502;
+}
+
+button[onclick="clearer()"]:hover {
+    background: #ff7f00;
+}
+
+/* Equal button */
+button[onclick="compute(1)"] {
+    background: #2ed573;
+}
+
+button[onclick="compute(1)"]:hover {
+    background: #1dd1a1;
+}
+
+/* Dot button full width */
+#btn > button {
+    width: 100%;
+    margin-top: 5px;
+    background: #3742fa;
+}
+
+#btn > button:hover {
+    background: #2f36c7;
+}
