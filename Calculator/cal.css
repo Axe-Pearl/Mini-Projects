@@ -1,64 +1,137 @@
-body{
-    background-image: url(c10.jpg);
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-}
-button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
-}
-#outside{
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 100px;
-    width: 1000px;
-    height: 600px;
-    padding: 5px;
-}
-#heading{
-    margin: auto;
-    width: 412px;
-    font-size: xxx-large;
-}
-#btn{
-    margin: auto;
-    margin-top: 20px;
-    width: 815px;
-}
-.btn-inside{
-    width: 900px;
-}
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
-}
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.display {
+    width: 100%;
+    padding: 20px;
+    text-align: right;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.previous-operand {
+    min-height: 24px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.current-operand {
+    min-height: 48px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fn {
+    color: #ff7675;
+    font-weight: 600;
+}
+
+.op {
+    color: #74b9ff;
+    font-weight: 600;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.eq {
+    background: #74b9ff;
+    color: #fff;
+    font-weight: 600;
+}
+
+.eq:hover {
+    background: #0984e3;
+}
+
+.num {
+    font-size: 1.5rem; /* Larger font for numbers */
+    font-weight: 500;
+}
+
+/* Zero button spanning 2 columns if desired, but current layout has single zero. 
+   If you want zero to be wide, uncomment below and adjust HTML */
+/* .zero { grid-column: span 2; } */
+
+@media (max-width: 450px) {
+    .container {
+        padding: 10px;
+    }
+    .current-operand {
+        font-size: 2rem;
+    }
+    button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
