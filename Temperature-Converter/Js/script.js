@@ -25,6 +25,8 @@ const tempLoad = () => {
 }
 
 setInterval(() => {
+    //define the variable fa in this scope to avoid the error of "fa is not defined"
+    const fa =document.getElementById('fa');
     fa.style.color = "#ffa41b";
     tempLoad();
 }, 5000);
@@ -33,24 +35,26 @@ setInterval(() => {
 tempLoad();
 
 const calculateTemp = () => {
-    const numberTemp = document.getElementById('temp').value;
+    const numberTemp = parseFloat(document.getElementById('temp').value);
     // console.log(numberTemp);
 
     const tempSelected = document.querySelector('#temp_diff');
-    const valeTemp = temp_diff.options[tempSelected.selectedIndex].value;
+    const valeTemp = tempSelected.options[tempSelected.selectedIndex].value;
     // console.log(valeTemp);
 
 
     // Convert temperature from Celcius to Fahrenheit
     const celTOfah = (cel) => {
         let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
+        //only show 2 decimal places
+        return fahrenheit.toFixed(2); 
     }
 
     // Convert temperature from Fahrenheit to Celsius
     const fahTOcel = (fehr) => {
         let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
+        //here also show only 2 decimal places
+        return celsius.toFixed(2);  
     }
 
     let result;
