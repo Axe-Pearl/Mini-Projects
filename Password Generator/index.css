@@ -3,7 +3,6 @@ body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #1F2937;
 }
-
 .container{
     margin-left: 20%;
     margin-right: 10%;
@@ -133,4 +132,28 @@ input:checked + .slider:before {
 
 .slider.round:before{
     border-radius: 50%;
+}
+
+.input-label {
+    display: block; 
+    color: #D5D4D8;
+    margin-top: 1.5em;
+    font-size: 1.1rem;
+}
+
+.input-style {
+    background-color: #273549; 
+    color: #55F991; 
+    border: 1px solid #10B981; 
+    border-radius: 0.5rem;
+    padding: 0.5em;
+    font-family: inherit; 
+    font-size: 1rem;
+    width: 60px;
+    margin-top: 0.5em;
+    outline: none; 
+}
+
+.input-style:focus {
+    border: 2px solid #55F991;
 }
