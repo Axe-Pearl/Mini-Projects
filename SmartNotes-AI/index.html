@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Test Chat</h2>
+
+<input id="query" placeholder="type anything">
+<button onclick="send()">Send</button>
+
+<p id="res"></p>
+
+<script>
+function send() {
+  console.log("Clicked");
+
+  fetch("http://localhost:3000/ask", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({query: "hi"})
+  })
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById("res").innerText = d[0].content;
+  })
+  .catch(e => {
+    console.log(e);
+    document.getElementById("res").innerText = "Error";
+  });
+}
+</script>
+
+</body>
+</html>
