@@ -29,41 +29,55 @@ setInterval(() => {
     tempLoad();
 }, 5000);
 
-
 tempLoad();
 
 const calculateTemp = () => {
-    const numberTemp = document.getElementById('temp').value;
-    // console.log(numberTemp);
+    const input = document.getElementById('temp').value.trim();
+    const resultContainer = document.getElementById('resultContainer');
+    const unit = document.getElementById('temp_diff').value;
 
-    const tempSelected = document.querySelector('#temp_diff');
-    const valeTemp = temp_diff.options[tempSelected.selectedIndex].value;
-    // console.log(valeTemp);
+    // Reset UI
+    resultContainer.innerHTML = "";
+    resultContainer.style.color = "red";
 
+    // 🔹 Validation helpers
+    const showError = (msg) => {
+        resultContainer.innerHTML = msg;
+    };
 
-    // Convert temperature from Celcius to Fahrenheit
-    const celTOfah = (cel) => {
-        let fahrenheit = (cel * (9 / 5) + 32);
-        return fahrenheit;
+    // 🔹 1. Empty check
+    if (!input) return showError("⚠️ Please enter a temperature value.");
+
+    // 🔹 2. Numeric check
+    if (isNaN(input)) return showError("⚠️ Invalid input. Please enter a numeric value.");
+
+    const temp = parseFloat(input);
+
+    // 🔹 3. Absolute zero validation
+    const isBelowAbsoluteZero =
+        (unit === "cel" && temp < -273.15) ||
+        (unit === "fah" && temp < -459.67);
+
+    if (isBelowAbsoluteZero) {
+        return showError(
+            unit === "cel"
+                ? "⚠️ Temperature cannot be below -273.15°C."
+                : "⚠️ Temperature cannot be below -459.67°F."
+        );
     }
 
-    // Convert temperature from Fahrenheit to Celsius
-    const fahTOcel = (fehr) => {
-        let celsius = ((fehr - 32) * 5 / 9);
-        return celsius;
-    }
+    // 🔹 Conversion functions
+    const convert = {
+        cel: (t) => (t * 9 / 5 + 32).toFixed(2) + " °Fahrenheit",
+        fah: (t) => ((t - 32) * 5 / 9).toFixed(2) + " °Celsius"
+    };
 
-    let result;
-    if (valeTemp == "cel") {
-        result = celTOfah(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
-    } else {
-        result = fahTOcel(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
-    }
+    // 🔹 Final result (clean + scalable)
+    const result = convert[unit](temp);
 
-    setTimeout(() => {
-        window.location.reload();
-    }, 1500);
-}
+    resultContainer.style.color = "#00b894";
+    resultContainer.innerHTML = `= ${result}`;
+};
+
+
 
