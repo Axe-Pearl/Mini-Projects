@@ -3,7 +3,9 @@ body{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #1F2937;
 }
-
+#password{
+    color: white;
+}
 .container{
     margin-left: 20%;
     margin-right: 10%;
