@@ -3,25 +3,24 @@ let headline = document.getElementById("headline1");
 let body = document.querySelector("body");
 let line = document.querySelector("#line");
 let hr = document.querySelector("hr");
-let headline2 = document.querySelector("#headline2");
+let password = document.querySelector("#password");
 
 mode.addEventListener("change", () => {
   if (mode.checked) {
     headline.style.color = "#000000";
-    body.style.backgroundColor = "#ECFDF5"
-    line.style.color = "#6B7280"
-    hr.style.color = "#E8E7E9"
-    headline2.style.color = "#10B981"
-    
-    
+    body.style.backgroundColor = "#ECFDF5";
+    line.style.color = "#6B7280";
+    hr.style.color = "#E8E7E9";
+    headline2.style.color = "#10B981";
+    password.style.color = "#000000";
   } else {
-    headline2.style.color = "#55F991"
+    headline2.style.color = "#55F991";
     headline.style.color = "aliceblue";
-    body.style.backgroundColor = "#1F2937"
-    hr.style.color = "#273549"
+    body.style.backgroundColor = "#1F2937";
+    hr.style.color = "#273549";
+    password.style.color = "#E8E7E9";
   }
 });
-
 
 const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -40,10 +39,11 @@ const generatePassword = (length) => {
 };
 
 const displayPassword = () => {
+  let number = Number(document.getElementById("passlen").value);
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
+  dPassword1.textContent = generatePassword(number);
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+  dPassword2.textContent = generatePassword(number);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
