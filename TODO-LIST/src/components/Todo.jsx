@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Todo = ({ todo,deleteTodo,moveUp,moveDown,total,index}) => {
     
     return (
