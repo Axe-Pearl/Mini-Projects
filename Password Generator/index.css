@@ -134,3 +134,10 @@ input:checked + .slider:before {
 .slider.round:before{
     border-radius: 50%;
 }
+
+#length{
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    border: none;
+}
