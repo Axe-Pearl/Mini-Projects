@@ -39,11 +39,15 @@ const generatePassword = (length) => {
   return password;
 };
 
+
 const displayPassword = () => {
+  let passwordLength = document.getElementById("length").value;
+
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
+  dPassword1.textContent = generatePassword(passwordLength);
+
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+  dPassword2.textContent = generatePassword(passwordLength);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
