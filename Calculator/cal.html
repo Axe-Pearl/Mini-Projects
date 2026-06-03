@@ -13,11 +13,13 @@
     <div id="outside">
         <h1 id="heading">🖩CALCULATOR🖩</h1>
         <div>
-            <div>
-                <h1 id="val"> </h1>
-            </div>
-            <div>
-                <p id="res"></p>
+            <div class="screen-container">
+                <div class="screen operation">
+                    <p id="val"></p>
+                </div>
+                <div class="screen result">
+                    <p id="res"></p>
+                </div>
             </div>
             <div id="btn">
                 <div class="btn-inside">
@@ -39,12 +41,14 @@
                     <button onclick="adder('-')">-</button>
                 </div>
                 <div class="btn-inside">
-                    <button onclick="clearer()">C</button>
+                    <button class="clear-btn" onclick="clearer()">C</button>
                     <button onclick="adder('0')">0</button>
-                    <button onclick="compute(1)">=</button>
+                    <button class="equal-btn" onclick="compute(1)">=</button>
                     <button onclick="adder('/')">/</button>
                 </div>
-                <button onclick="adder('.')">.</button>
+                <div class="btn-inside">
+                    <button class="decimal-btn" onclick="adder('.')">.</button>
+                </div>
             </div>
         </div>
     </div>

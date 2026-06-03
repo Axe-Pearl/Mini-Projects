@@ -11,12 +11,46 @@ button{
     width: 200px;
     height: 50px;
     margin: 2px 2px;
-    background-color: blue;
+    background-color: #007bff;
     color: #fff4a7;
-    border-radius: 20px;
+    border-radius: 15px;
     font-weight: bolder;
     font-style: italic;
     font-size: larger;
+    border: 2px solid #0056b3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.equal-btn {
+    background-color: #28a745;
+    border-color: #1e7e34;
+    color: white;
+}
+
+.equal-btn:hover {
+    background-color: #218838;
+}
+
+.clear-btn {
+    background-color: #dc3545;
+    border-color: #c82333;
+    color: white;
+}
+
+.clear-btn:hover {
+    background-color: #c82333;
+}
+
+.decimal-btn {
+    width: 815px;
+    background-color: #6c757d;
+    border-color: #5a6268;
 }
 #outside{
     color: white;
@@ -40,25 +74,59 @@ button{
 .btn-inside{
     width: 900px;
 }
-#val{
-    /* border: 2px solid red; */
-    height: 55px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 20px;
-    font-weight: bolder;
+.screen-container {
+    margin: auto;
+    margin-top: 20px;
+    width: 815px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    border: 3px solid #333;
 }
-#res{
-    /* border: 2px solid red; */
-    height: 50px;
-    width: 783px;
-    margin-left: 100px;
-    color: white;
-    padding-left: 37px;
-    padding-top: 25px;
-    font-weight: bolder;
-    font-size: x-large;
+
+.screen {
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #1a1a1a;
+}
+
+.screen.operation {
+    height: 40px;
+    background-color: #0a0a0a;
+}
+
+.screen.operation p {
+    margin: 0;
+    padding: 5px 10px;
+    color: #76ff03;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    min-height: 30px;
+}
+
+.screen.result {
+    height: 60px;
+    background-color: #1a1a1a;
+}
+
+.screen.result p {
+    margin: 0;
+    padding: 10px;
+    color: #ffeb3b;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: right;
+    min-height: 40px;
+}
+
+#val {
+    margin: 0;
+}
+
+#res {
+    margin: 0;
 }
 
