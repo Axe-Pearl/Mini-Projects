@@ -40,10 +40,24 @@ const generatePassword = (length) => {
 };
 
 const displayPassword = () => {
+  let lengthInput = document.querySelector("#passwordLength");
+  let length = parseInt(lengthInput.value) || 12;
+  
+  if (length < 1) {
+    alert("Password length must be at least 1");
+    lengthInput.value = 12;
+    length = 12;
+  }
+  if (length > 128) {
+    alert("Password length cannot exceed 128 characters");
+    lengthInput.value = 128;
+    length = 128;
+  }
+  
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
+  dPassword1.textContent = generatePassword(length);
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+  dPassword2.textContent = generatePassword(length);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);

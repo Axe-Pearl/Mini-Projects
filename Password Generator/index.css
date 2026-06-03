@@ -72,6 +72,39 @@ hr{
     color: #D5D4D8;
 }
 
+.length-input-group {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.length-input-group label {
+    color: aliceblue;
+    font-weight: 500;
+}
+
+#passwordLength {
+    padding: 0.5em;
+    border: 2px solid #10B981;
+    border-radius: 0.5rem;
+    background-color: #273549;
+    color: #55F991;
+    font-size: 1em;
+    width: 150px;
+}
+
+#passwordLength:focus {
+    outline: none;
+    border-color: #55F991;
+    box-shadow: 0 0 5px #10B981;
+}
+
+#passwordLength::placeholder {
+    color: #6B7280;
+}
+
 .password-container{
     display: flex;
     
