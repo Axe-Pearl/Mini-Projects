@@ -134,3 +134,12 @@ input:checked + .slider:before {
 .slider.round:before{
     border-radius: 50%;
 }
+#length1{
+background-color: #10B981;
+}
+#length2{
+background-color: #10B981;
+}
+.length-label{
+    color:white;
+}
