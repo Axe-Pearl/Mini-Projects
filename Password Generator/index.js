@@ -40,10 +40,15 @@ const generatePassword = (length) => {
 };
 
 const displayPassword = () => {
-  let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
-  let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+    const length = parseInt(
+        document.getElementById("passwordLength").value
+    );
+
+    let dPassword1 = document.querySelector(".Password1");
+    dPassword1.textContent = generatePassword(length);
+
+    let dPassword2 = document.querySelector(".Password2");
+    dPassword2.textContent = generatePassword(length);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
