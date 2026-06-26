@@ -40,10 +40,43 @@ const generatePassword = (length) => {
 };
 
 const displayPassword = () => {
+  const lengthInput = document.getElementById("passwordLength");
+  let length = parseInt(lengthInput.value, 10);
+
+  // Validation
+  if (isNaN(length) || length < 4) {
+    length = 4;
+  } else if (length > 32) {
+    length = 32;
+  }
+
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+
+  dPassword1.textContent = generatePassword(length);
+  dPassword2.textContent = generatePassword(length);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);
+
+const copyPassword = (selector) => {
+
+  const text = document.querySelector(selector).textContent;
+
+  if (!text) {
+    alert("Generate a password first!");
+    return;
+  }
+
+  navigator.clipboard.writeText(text);
+
+  alert("Password copied!");
+};
+
+document
+  .getElementById("copyBtn1")
+  .addEventListener("click", () => copyPassword(".Password1"));
+
+document
+  .getElementById("copyBtn2")
+  .addEventListener("click", () => copyPassword(".Password2"));
