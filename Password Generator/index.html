@@ -11,18 +11,40 @@
       <h2 id="headline1">Generate a</h2>
       <h2 id="headline2">random password</h2>
       <p id="line">Never use an insecure password</p>
-      <button id="btn">Generate Password</button>
+      <div class="length-container">
+  <label for="passwordLength">Password Length:</label>
+  <input
+    type="number"
+    id="passwordLength"
+    min="4"
+    max="32"
+    value="12"
+  />
+</div>
+
+<button id="btn">Generate Password</button>
+      
       <hr />
       <div class="password-container">
-        <button id="PassContainer">
-          <p class="Password1"></p>
-        <button id="PassContainer">
-          <p class="Password2"></p>
+        <div class="password-box">
+    <p class="Password1"></p>
+    <button id="copyBtn1" class="copy-btn">📋 Copy</button>
+  </div>
+
+  <div class="password-box">
+    <p class="Password2"></p>
+    <button id="copyBtn2" class="copy-btn">📋 Copy</button>
+  </div>
       </div>
-      <label class="switch" for="modeChanger">
+      <div class="theme-container">
+    <span class="theme-text">Theme</span>
+
+    <label class="switch" for="modeChanger">
         <input type="checkbox" id="modeChanger">
         <span class="slider round"></span>
-      </label>
+    </label>
+</div>
+        
       
     </div>
   </body>

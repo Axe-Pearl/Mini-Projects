@@ -134,3 +134,71 @@ input:checked + .slider:before {
 .slider.round:before{
     border-radius: 50%;
 }
+
+.length-container {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.length-container label {
+  font-weight: bold;
+}
+
+.length-container input {
+  width: 70px;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.theme-container{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+}
+
+.theme-text{
+    color:white;
+    font-size:16px;
+    font-weight:600;
+}
+.password-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:1.5em;
+    margin-right:2em;
+
+    width:17em;
+    min-height:3em;
+
+    padding:10px 15px;
+
+    border-radius:.5rem;
+
+    background:#273549;
+
+    border:2px solid #000;
+}
+
+.copy-btn{
+    background:#10B981;
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    padding:6px 10px;
+
+    cursor:pointer;
+
+    font-size:12px;
+}
+
+.copy-btn:hover{
+    background:#0ea371;
+}
