@@ -1,37 +1,273 @@
-#clockContainer{  
-    position: relative;
-    margin: auto;
-    height: 40vw;
-    width: 40vw; 
-    background: url(clock.png) no-repeat;
-    background-size: 100%;
+/* ==========================================================
+   Meridian — an analogue clock styled as a wristwatch dial
+   Tokens
+   ========================================================== */
+:root{
+  --ink-950: #060a13;
+  --ink-900: #0b1220;
+  --ink-800: #141d33;
+  --dial-800: #131c30;
+  --dial-700: #1c2942;
+  --brass-500: #c9a44c;
+  --brass-300: #e6cf8e;
+  --brass-700: #8a6a2c;
+  --ivory: #ede6d6;
+  --ivory-dim: rgba(237,230,214,0.55);
+  --accent-red: #b23a48;
+
+  --face-display: "Cormorant Garamond", serif;
+  --face-mono: "JetBrains Mono", monospace;
 }
 
-#hour, #minute, #second{
-    position: absolute;
-    background: black;
-    border-radius: 10px; 
-    transform-origin: bottom;
+*{ box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+  margin: 0;
 }
-#hour{
-    width: 1.8%;
-    height: 25%;
-    top: 25%;
-    left: 48.85%;
-    opacity: 0.8;  
+
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120vmax 90vmax at 50% -10%, #101a30 0%, var(--ink-900) 45%, var(--ink-950) 100%);
+  font-family: var(--face-mono);
+  color: var(--ivory);
+  overflow: hidden;
 }
-#minute{
-    width: 1.6%;
-    height: 30%;
-    top: 19%;
-    left: 48.9%;
-    opacity: 0.8;  
+
+.stage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: 2rem;
 }
-#second{
-    width: 1%;
-    height: 40%;
-    top: 9%;
-    left: 49.25%;
-    opacity: 0.8; 
-    
+
+/* ==========================================================
+   Watch body: bezel + dial
+   ========================================================== */
+.watch{
+  --size: min(62vmin, 480px);
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+}
+
+.bezel{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 180deg,
+      var(--brass-300), var(--brass-700) 15%, var(--brass-500) 30%,
+      var(--brass-700) 45%, var(--brass-300) 60%, var(--brass-700) 75%,
+      var(--brass-500) 90%, var(--brass-300) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.4),
+    0 25px 60px -15px rgba(0,0,0,0.75),
+    inset 0 0 0 2px rgba(255,255,255,0.08);
+  padding: clamp(8px, 1.6vmin, 14px);
+}
+
+.bezel-notch{
+  position: absolute;
+  inset: -3px;
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  background: rgba(6,10,19,0.55);
+  border-radius: 50%;
+  transform: rotate(calc(var(--n) * 45deg)) translateY(calc(var(--size, 480px) * -0.485));
+}
+
+.dial{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    radial-gradient(120% 120% at 30% 20%, var(--dial-700) 0%, var(--dial-800) 55%, #0e1526 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(201,164,76,0.35),
+    inset 0 2px 10px rgba(0,0,0,0.6),
+    inset 0 -1px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* ==========================================================
+   Ticks (generated) + numerals (generated)
+   ========================================================== */
+.ticks{ position: absolute; inset: 0; }
+
+.tick{
+  position: absolute;
+  left: 50%;
+  top: 4%;
+  width: 1.5px;
+  height: 4%;
+  background: var(--ivory-dim);
+  transform-origin: 50% calc(46vmin);
+}
+.tick.hour{
+  width: 3px;
+  height: 7%;
+  background: var(--brass-300);
+}
+
+.numerals{
+  position: absolute;
+  inset: 0;
+  font-family: var(--face-display);
+  font-weight: 600;
+  color: var(--ivory);
+  letter-spacing: 0.02em;
+}
+.numeral{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: clamp(1.1rem, 4.6vmin, 2rem);
+  width: 2em;
+  text-align: center;
+  transform:
+    rotate(var(--ang))
+    translate(0, -37vmin)
+    rotate(calc(-1 * var(--ang)))
+    translate(-1em, -0.6em);
+}
+
+.brand{
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--face-display);
+  font-size: clamp(0.85rem, 2.6vmin, 1.15rem);
+  letter-spacing: 0.28em;
+  color: var(--brass-300);
+}
+.subbrand{
+  position: absolute;
+  top: 38.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--face-mono);
+  font-size: clamp(0.5rem, 1.3vmin, 0.62rem);
+  letter-spacing: 0.22em;
+  color: var(--ivory-dim);
+}
+
+/* ==========================================================
+   Hands
+   ========================================================== */
+.hands{ position: absolute; inset: 0; }
+
+.hand{
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 3px;
+  will-change: transform;
+}
+
+.hand.hour{
+  width: 2.6%;
+  height: 26%;
+  margin-left: -1.3%;
+  background: linear-gradient(var(--ivory), var(--ivory-dim));
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+.hand.minute{
+  width: 1.8%;
+  height: 36%;
+  margin-left: -0.9%;
+  background: linear-gradient(var(--ivory), var(--ivory-dim));
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+.hand.second{
+  width: 0.6%;
+  height: 40%;
+  margin-left: -0.3%;
+  background: var(--accent-red);
+  transform: translateY(12%);
+}
+.hand.second::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 500%;
+  height: 14%;
+  transform: translate(-50%, 0);
+  background: var(--accent-red);
+  border-radius: 3px;
+}
+
+.pivot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.4%;
+  height: 3.4%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--brass-300), var(--brass-700));
+  box-shadow: 0 0 4px rgba(0,0,0,0.6);
+  z-index: 3;
+}
+
+.crystal-glare{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(115deg,
+    rgba(255,255,255,0.10) 0%,
+    rgba(255,255,255,0.03) 22%,
+    transparent 40%);
+  pointer-events: none;
+}
+
+/* ==========================================================
+   Digital readout
+   ========================================================== */
+.readout{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.eyebrow{
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--brass-300);
+}
+
+.digital{
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.date{
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--ivory-dim);
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   Motion preferences
+   ========================================================== */
+@media (prefers-reduced-motion: reduce){
+  .hand{ transition: none !important; }
 }
