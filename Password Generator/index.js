@@ -5,6 +5,7 @@ let line = document.querySelector("#line");
 let hr = document.querySelector("hr");
 let headline2 = document.querySelector("#headline2");
 
+
 mode.addEventListener("change", () => {
   if (mode.checked) {
     headline.style.color = "#000000";
@@ -27,10 +28,11 @@ const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numberChars = "0123456789";
 const specialChars = "!@#$%^&*";
-
+const input = document.getElementById("length");
 const generatePassword = (length) => {
   const allChars = `${lowercaseChars}${uppercaseChars}${numberChars}${specialChars}`;
   let password = "";
+  
 
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * allChars.length);
@@ -40,10 +42,13 @@ const generatePassword = (length) => {
 };
 
 const displayPassword = () => {
+  const length = Number(input.value);
+
   let dPassword1 = document.querySelector(".Password1");
-  dPassword1.textContent = generatePassword(13);
+  dPassword1.textContent = generatePassword(length);
+
   let dPassword2 = document.querySelector(".Password2");
-  dPassword2.textContent = generatePassword(12);
+  dPassword2.textContent = generatePassword(length);
 };
 
 document.getElementById("btn").addEventListener("click", displayPassword);

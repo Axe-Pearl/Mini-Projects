@@ -12,6 +12,32 @@ body{
 #headline {
     color:#10B981;
 }
+.value{
+    color: #30a430;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.line {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+
+#length{
+      width: 80px;
+    height: 35px;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #10B981;
+    border-radius: 8px;
+    outline: none;
+    background-color: #09080f;
+    color: #58e139;
+
+}
 
 #btn {
     background-color: #10B981;
@@ -41,7 +67,7 @@ hr{
     width: 17em;
     height: 3em;
     line-height: normal;
-    display: block;
+    display: flex;
     border-radius: .5rem;
     background-color: #273549;
     color:#000000;
