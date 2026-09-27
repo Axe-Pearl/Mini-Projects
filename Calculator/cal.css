@@ -54,7 +54,8 @@ button{
 #res{
     /* border: 2px solid red; */
     height: 50px;
-    width: 783px;
+    width: fit-content;
+    min-width: 783px;
     margin-left: 100px;
     color: white;
     padding-left: 37px;
