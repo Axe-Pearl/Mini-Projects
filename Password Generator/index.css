@@ -38,8 +38,10 @@ hr{
     margin-top: 1.5em;
     margin-right: 2em;
     padding-bottom: 2.5rem;
-    width: 17em;
-    height: 3em;
+    width: fit-content;
+    min-width: 17em;
+    height: auto;
+    min-height: 3em;
     line-height: normal;
     display: block;
     border-radius: .5rem;
