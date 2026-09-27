@@ -8,15 +8,25 @@ body{
     background-size: cover;
 }
 button{
-    width: 200px;
-    height: 50px;
-    margin: 2px 2px;
-    background-color: blue;
-    color: #fff4a7;
-    border-radius: 20px;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: larger;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #555;
+}
+.equals {
+    background-color: #28a745;
+}
+.clear {
+    background-color: #dc3545;
 }
 #outside{
     color: white;
