@@ -56,10 +56,10 @@ const calculateTemp = () => {
     let result;
     if (valeTemp == "cel") {
         result = celTOfah(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
+        document.getElementById('resultContainer').innerHTML = `= ${result.toFixed(2)}°Fahrenheit`;
     } else {
         result = fahTOcel(numberTemp);
-        document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
+        document.getElementById('resultContainer').innerHTML = `= ${result.toFixed(2)}°Celsius`;
     }
 
     setTimeout(() => {
